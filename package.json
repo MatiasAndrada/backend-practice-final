@@ -9,9 +9,10 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "firebase-admin": "^11.4.1",
     "hbs": "~4.0.4",
     "moment": "^2.29.4",
-    "mongoose": "^6.7.2",
+    "mongoose": "^6.8.3",
     "morgan": "~1.9.1",
     "socket.io": "^4.5.4",
     "winston": "^3.8.2"
