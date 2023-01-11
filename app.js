@@ -1,14 +1,21 @@
-var createError = require('http-errors');
 var express = require('express');
-var path = require('path');
 var cookieParser = require('cookie-parser');
+var path = require('path');
 var logger = require('morgan');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+//
+const { Server: HtppServer } = require("http");
+const { Server: IOServer } = require("socket.io");
+const dbConfig = require("./config");
+const mongoose = require("mongoose");
 
 var app = express();
 
+//
+mongoose.set("strictQuery", false);
+mongoose.connect(dbConfig.mongodb.cnxStr);
+const httpServer = new HtppServer(app);
+const io = new IOServer(httpServer);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
@@ -19,12 +26,19 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+const indexRouter = require("./routes/index")
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+//app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
+});
+
+//listen
+httpServer.listen(3000, () => {
+  console.log("Server started on port 3000");
 });
 
 // error handler
