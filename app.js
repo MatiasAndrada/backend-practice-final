@@ -26,10 +26,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//!ROUTES
+//app.use("/", require("./routes/auth.js"));
+//app.use("/api", require("./routes/info.js"));
+app.use("/api/carrito", require("./routes/carrito.js"));
+app.use("/api/productos", require("./routes/productos.js"));
 
-//const indexRouter = require("./routes/index")
-//app.use('/', indexRouter);
-//app.use('/users', usersRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
