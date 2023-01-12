@@ -56,7 +56,7 @@ app.use(flash());
 app.use("/", require("./routes/auth")(passport));
 app.use("/api", require("./routes/info"));
 //app.use("/api/productos", require("./routes/productos"));
-app.use("/api/carrito", require("./routes/carrito"));
+//app.use("/api/carrito", require("./routes/carrito"));
 
 // catch 404 and forward to error handler
 app.use("*", (req, res) => {
