@@ -19,7 +19,7 @@ module.exports = function(passport){
 	router.post('/login', passport.authenticate('login', {
 		successRedirect: '/home',
 		failureRedirect: '/login-error',
-		failureFlash : true  
+		//failureFlash : true  
 	}));
 
 	/* GET Registration Page */
@@ -31,7 +31,7 @@ module.exports = function(passport){
 	router.post('/register', passport.authenticate('signup', {
 		successRedirect: '/',
 		failureRedirect: '/register',
-		failureFlash : true  
+		//failureFlash : true  
 	}));
 
 	/* GET Home Page */

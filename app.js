@@ -26,12 +26,34 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+//!PASSPORT
+
+// Configuring Passport
+const passport = require("passport");
+const expressSession = require("express-session");
+//Initialize Passport
+const initPassport = require("./passport/init");
+initPassport(passport);
+//Use the session middleware
+app.use(
+  expressSession({
+    secret: "shhhhhhhhhhhhhhhhhhhhh",
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+      maxAge: 60000,
+    },
+  })
+);
+app.use(passport.initialize());
+app.use(passport.session());
+
 //!ROUTES
-app.use("/", require("./routes/auth.js"));
+app.use("/", require("./routes/auth.js")(passport));
 app.use("/api", require("./routes/info.js"));
 //app.use("/api/carrito", require("./routes/carrito"));
 //app.use("/api/productos", require("./routes/productos"));
-
 
 // catch 404 and forward to error handler
 app.use("*", (req, res) => {
