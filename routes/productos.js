@@ -1,5 +1,4 @@
-const express = require("express");
-const router = express.Router();
+const router = require("express").Router();
 const { productsApi } = require("../daos/index");
 const logger = require("../logs/logger");
 const { v4: uuidv4 } = require("uuid");
