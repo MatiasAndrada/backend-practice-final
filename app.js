@@ -2,7 +2,7 @@ var express = require('express');
 var cookieParser = require('cookie-parser');
 var path = require('path');
 var logger = require('morgan');
-
+var createError = require('http-errors')
 //
 const { Server: HtppServer } = require("http");
 const { Server: IOServer } = require("socket.io");
@@ -27,10 +27,10 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 //!ROUTES
-//app.use("/", require("./routes/auth.js"));
-//app.use("/api", require("./routes/info.js"));
-//app.use("/api/carrito", require("./routes/carrito"));
-//app.use("/api/productos", require("./routes/productos"));
+app.use("/", require("./routes/auth.js"));
+app.use("/api", require("./routes/info.js"));
+app.use("/api/carrito", require("./routes/carrito"));
+app.use("/api/productos", require("./routes/productos"));
 
 
 // catch 404 and forward to error handler

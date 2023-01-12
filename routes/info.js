@@ -20,7 +20,7 @@ router.get("/randoms-child-process", (req, res) => {
   const { cant } = req.query;
   const cantRandoms = cant || 600000000;
   const fork = require("child_process").fork;
-  const child = fork("./fork.js");
+  const child = fork("../fork.js");
   child.send(cantRandoms);
   console.log(cantRandoms);
   child.on("message", (message) => {

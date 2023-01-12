@@ -12,7 +12,7 @@ module.exports = function(passport){
 	/* GET login page. */
 	router.get('/', function(req, res) {
     	// Display the Login page with any flash message, if any
-		res.sendFile('index.html', { root: "public", user: req.user });
+		res.sendFile('index.html', { root: "public" });
 		console.log(req.user);
 	});
 
@@ -25,8 +25,8 @@ module.exports = function(passport){
 
 	/* GET Registration Page */
 	router.get('/register', function(req, res){
-		res.sendFile('register.html', { root: "public",})
-	});
+		res.sendFile('register.html', { root: "public"})
+	})
 
 	/* Handle Registration POST */
 	router.post('/register', passport.authenticate('signup', {
@@ -36,8 +36,8 @@ module.exports = function(passport){
 	}));
 
 	/* GET Home Page */
-	router.get('/home', isAuthenticated, function(req, res){
-		res.sendFile('viewProducts.html', { root: "public", user: req.user });
+	router.get('/home',  function(req, res){
+		res.sendFile('viewProducts.html', {  user: req.user });
 	});
 
 	/* GET login-error */
