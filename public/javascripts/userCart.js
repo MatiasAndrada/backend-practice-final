@@ -1,16 +1,13 @@
 const socket = io.connect();
 
-$(document).ready(function () {
-  $("#deleteAll").hide();
-});
-
 function renderPartialhbs(data) {
   const template = Handlebars.compile($("#template").html());
   const html = template({ list: data, listExist: true });
   $("#prdtCartList").html(html);
 }
 
-socket.on("refresh-new-products-cart", (idCart) => {
+function getCartList() {
+  const idCart = localStorage.getItem("idCart");
   if (idCart) {
     $.ajax({ moment: "GET", url: "/api/carrito/" + idCart + "/prdt" }).done(
       (data) => {
@@ -25,13 +22,17 @@ socket.on("refresh-new-products-cart", (idCart) => {
       }  
     );
   }
+}
+socket.on("refresh-new-products-cart", () => {
+  getCartList();
 });
 
-$("#signInForm").submit(function (e) {
+$("#sign-in-btn").submit(function (e) {
   e.preventDefault();
   const cartSelect = $("#cart-select").val();
   if (cartSelect) {
-    socket.emit("refresh-new-products-cart", cartSelect);
+    localStorage.setItem("idCart", cartSelect);
+    getCartId();
   }
   $("#sign-in-form").html(
     `<button id="log-out-btn" class="btn-danger">Log Out</button>`

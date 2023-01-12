@@ -1,7 +1,8 @@
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var path = require('path');
-var logger = require('morgan');
+var loggerDEV = require('morgan');
+var logger = require("./logs/logger");
 
 //
 const { Server: HtppServer } = require("http");
@@ -20,8 +21,8 @@ const io = new IOServer(httpServer);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-app.use(logger('dev'));
-app.use(express.json());
+app.use(loggerDEV('dev'));
+app.use(express.json())
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
@@ -54,17 +55,38 @@ app.use(flash());
 //!ROUTES
 app.use("/", require("./routes/auth")(passport));
 app.use("/api", require("./routes/info"));
-//app.use("/api/carrito", require("./routes/carrito"));
-//app.use("/api/productos", require("./routes/productos"));
+app.use("/api/carrito", require("./routes/carrito"));
+app.use("/api/productos", require("./routes/productos"));
 
 // catch 404 and forward to error handler
 app.use("*", (req, res) => {
   res.status(404).send("Recurso no encontrado");
 });
-//listen
-httpServer.listen(3000, () => {
-  console.log("Server started on port 3000");
+
+//socket.io
+io.on("connection", (socket) => {
+  socket.on("change-list", () => {
+    io.sockets.emit("refresh-new-products");
+  });
+  socket.on("change-list-cart", (idCart) => {
+    io.sockets.emit("refresh-new-products-cart", idCart);
+  });
 });
+
+//lister
+app.listen(3000, () => {
+  logger.info("Servidor escuchando en el puerto 3000");
+});
+
+mongoose.connection.on("connected", () => {
+  logger.info(`Conexion a la base de datos exitosa`);
+});
+
+//por si hay algun error en la conexion a la base de datos
+mongoose.connection.on("error", (error) => {
+  logger.error(`Error en la conexion a la base de datos: ${error}`);
+});
+
 
 // error handler
 app.use(function(err, req, res, next) {

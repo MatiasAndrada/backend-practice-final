@@ -35,7 +35,7 @@ module.exports = function(passport){
 	}));
 
 	/* GET Home Page */
-	router.get('/home',  function(req, res){
+	router.get('/home', isAuthenticated, function(req, res){
 		res.sendFile('viewProducts.html', { root: "public", user: req.user });
 	});
 

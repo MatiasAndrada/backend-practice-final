@@ -1,8 +1,7 @@
 const socket = io.connect();
 
 (() => {
-  socket.emit("refresh-new-products");
-  $("#deleteAll").hide();
+  getProductList();
 })();
 
 
@@ -14,7 +13,7 @@ function renderPartialhbs(data) {
   $("#prdtList").html(html);
 }
 
-socket.on("refresh-new-products", () => {
+function getProductList() {
   $.ajax({ moment: "GET", url: "/api/productos" }).done((data) => {
     if (data.length > 0) {
       renderPartialhbs(data);
@@ -25,14 +24,18 @@ socket.on("refresh-new-products", () => {
       );
     }
   });
+}
+socket.on("refresh-new-products", () => {
+  getProductList();
 });
 
+/*
 socket.on("unauthorized-access", () => {
   $("#product-list").prepend(
     `<h3 class="text-center text-danger">Primero tienes que estar logueado!!</h3>`
   );
 });
-
+*/
 
 
 
