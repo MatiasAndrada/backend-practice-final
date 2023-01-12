@@ -50,8 +50,8 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 //!ROUTES
-//app.use("/", require("./routes/auth.js")(passport));
-app.use("/api", require("./routes/info.js"));
+app.use("/", require("./routes/auth")(passport));
+app.use("/api", require("./routes/info"));
 //app.use("/api/carrito", require("./routes/carrito"));
 //app.use("/api/productos", require("./routes/productos"));
 
