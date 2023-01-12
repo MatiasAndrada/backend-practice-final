@@ -13,7 +13,6 @@ module.exports = function(passport){
 	router.get('/', function(req, res) {
     	// Display the Login page with any flash message, if any
 		res.sendFile('index.html', { root: "public" });
-		console.log(req.user);
 	});
 
 	/* Handle Login POST */

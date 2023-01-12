@@ -2,7 +2,7 @@ var express = require('express');
 var cookieParser = require('cookie-parser');
 var path = require('path');
 var logger = require('morgan');
-var createError = require('http-errors')
+
 //
 const { Server: HtppServer } = require("http");
 const { Server: IOServer } = require("socket.io");
@@ -34,10 +34,9 @@ app.use("/api/productos", require("./routes/productos"));
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  next(createError(404));
+app.use("*", (req, res) => {
+  res.status(404).send("Recurso no encontrado");
 });
-
 //listen
 httpServer.listen(3000, () => {
   console.log("Server started on port 3000");
