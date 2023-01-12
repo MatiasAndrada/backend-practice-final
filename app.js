@@ -48,6 +48,8 @@ app.use(
 );
 app.use(passport.initialize());
 app.use(passport.session());
+const flash = require("connect-flash");
+app.use(flash());
 
 //!ROUTES
 app.use("/", require("./routes/auth")(passport));
