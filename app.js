@@ -74,8 +74,8 @@ io.on("connection", (socket) => {
 });
 
 //lister
-app.listen(3080, () => {
-  logger.info("Servidor escuchando en el puerto 3080");
+app.listen(5001, () => {
+  logger.info("Servidor escuchando en el puerto 5001");
 });
 
 mongoose.connection.on("connected", () => {
