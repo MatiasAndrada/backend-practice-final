@@ -74,7 +74,7 @@ io.on("connection", (socket) => {
 });
 
 //lister
-app.listen(3000, () => {
+app.listen(4000, () => {
   logger.info("Servidor escuchando en el puerto 3000");
 });
 
