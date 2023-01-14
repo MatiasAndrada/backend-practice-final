@@ -56,7 +56,6 @@ class ContainerMongo {
             }else{
                 newId = parseInt(preSave[preSave.length-1].id) + 1
             }
-            console.log("id:",newId)
             await this.coleccion.insertMany({id:newId, ...newObj})
             mongoose.connection.close()   
         }catch(error){

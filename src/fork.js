@@ -14,6 +14,5 @@ const calculo = (cantRandoms) => {
 
 process.on("message", (cantRandoms) => {
   const dato = calculo(cantRandoms);
-  console.log(dato);
   process.send(dato);
 });

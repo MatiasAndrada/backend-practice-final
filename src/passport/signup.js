@@ -1,6 +1,7 @@
 const LocalStrategy = require("passport-local").Strategy;
 const User = require("../containers/models/user");
 const bCrypt = require("bcryptjs");
+const logger = require("../logs/logger");
 module.exports = function (passport) {
   passport.use(
     "signup",
@@ -14,12 +15,12 @@ module.exports = function (passport) {
           User.findOne({ username: username }, function (err, user) {
             // In case of any error return
             if (err) {
-              console.log("Error in SignUp: " + err);
+              logger.error(`Error: ${err}`);
               return done(err);
             }
             // already exists
             if (user) {
-              console.log("User already exists");
+              logger.warn("User already exists");
               return done(
                 null,
                 false,
@@ -38,10 +39,10 @@ module.exports = function (passport) {
               // save the user
               newUser.save(function (err) {
                 if (err) {
-                  console.log("Error in Saving user: " + err);
+                  logger.error(`Error: ${err}`);
                   throw err;
                 }
-                console.log("User Registration succesful");
+                logger.info("User Registration succesful");
                 return done(null, newUser);
               });
             }

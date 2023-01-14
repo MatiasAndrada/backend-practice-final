@@ -1,11 +1,14 @@
 const socket = io.connect();
-
-(() => {
-  getProductList();
-})();
+  
 
 
 
+  socket.on("server to client", () => {
+    console.log("server to client")
+/*     getProductList(); */
+    socket.emit("client to server");
+  });
+ 
 
 function renderPartialhbs(data) {
   const template = Handlebars.compile($("#template").html());
@@ -25,9 +28,6 @@ function getProductList() {
     }
   });
 }
-socket.on("refresh-new-products", () => {
-  getProductList();
-});
 
 /*
 socket.on("unauthorized-access", () => {
@@ -37,16 +37,12 @@ socket.on("unauthorized-access", () => {
 });
 */
 
-
-
-$("#logOutBtn").click(() =>(
+$("#logOutBtn").click(() =>
   fetch("/signout", {
-      method: "GET"
-  }
-  ).then((res) => {
-      if (res.status === 200) {
-          console.log("Logout successful")
-      }
-  }
-  )
-));
+    method: "GET",
+  }).then((res) => {
+    if (res.status === 200) {
+      console.log("Logout successful");
+    }
+  })
+);

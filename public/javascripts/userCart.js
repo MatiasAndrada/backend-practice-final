@@ -1,5 +1,14 @@
 const socket = io.connect();
 
+
+// client-side
+  socket.on("refresh-new-products-cart", () => {
+    getCartList();
+  });
+
+
+
+
 function renderPartialhbs(data) {
   const template = Handlebars.compile($("#template").html());
   const html = template({ list: data, listExist: true });
@@ -23,9 +32,6 @@ function getCartList() {
     );
   }
 }
-socket.on("refresh-new-products-cart", () => {
-  getCartList();
-});
 
 $("#sign-in-btn").submit(function (e) {
   e.preventDefault();

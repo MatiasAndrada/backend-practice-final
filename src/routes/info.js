@@ -22,7 +22,6 @@ router.get("/randoms-child-process", (req, res) => {
   const fork = require("child_process").fork;
   const child = fork("../fork.js");
   child.send(cantRandoms);
-  console.log(cantRandoms);
   child.on("message", (message) => {
     res.json(message);
   });
@@ -40,7 +39,6 @@ router.get("/randoms", (req, res) => {
     }
   }
   res.json(randoms);
-  console.log(randoms);
 });
 
 module.exports = router;

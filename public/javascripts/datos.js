@@ -10,7 +10,6 @@
         return (location.href = "/noAutorizado.html");
       }
       const data = await response.json();
-      console.log("/api/datos", data)
       const response2 = await fetch("/plantillas/datos.hbs");
       const plantila = await response2.text();
       const templateFun = Handlebars.compile(plantila);
