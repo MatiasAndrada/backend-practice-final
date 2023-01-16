@@ -7,7 +7,7 @@ const logger = require("./logs/logger");
 //
 
 const app = express();
-app.set("port", process.env.PORT || 8080);
+app.set("port", 8080)
 const dbConfig = require("./config");
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
@@ -55,7 +55,6 @@ const flash = require("connect-flash");
 app.use(flash());
 
 //lister
-console.log("PUERTO", app.get("port"))
 const server = app.listen(app.get("port"), () => {
   logger.info(`Servidor escuchando en el puerto ${app.get("port")}`);
 });
