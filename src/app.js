@@ -1,5 +1,5 @@
 const express = require("express");
-require("dotenv").config();
+//require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const loggerDEV = require("morgan");
@@ -9,7 +9,7 @@ const logger = require("./logs/logger");
 
 const app = express();
 //configuracion de puerto
-app.set("port", process.env.PORT || 8080);
+//app.set("port", process.env.PORT || 8080);
 const dbConfig = require("./config");
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
