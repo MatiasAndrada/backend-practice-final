@@ -1,11 +1,11 @@
 <div class="container text-center my-3">
     <div class="jumbotron" style="background-color: green;color: white;">
         <h1>USER OK LOGIN!</h1>
-        <h2><i>Bienvenido {{this.username}}</i></h2>
+        <h2><i>Bienvenido {{user.username}}</i></h2>
         <br>
-        <h3>dirección: {{this.email}}</h3>
-        <h4>nombre: {{this.firstName}}</h4>
-        <h4>apellido: {{this.lastName}}</h4>
+        <h3>dirección: {{user.email}}</h3>
+        <h4>nombre: {{user.firstName}}</h4>
+        <h4>apellido: {{user.lastName}}</h4>
         <button class="btn btn-danger my-5" onclick="location.href='/signout'">LOGOUT</button>
     </div>
 </div>

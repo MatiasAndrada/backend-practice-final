@@ -30,10 +30,7 @@
 
         <h2 class="text-center">Sign In</h2>
         <p class="text-center m-1">Debes iniciar sesion para ver tu carrito!</p>
-        <div class="form-group">
-            <input id="cart-select" type="number" name="number" min="1" max="3" step="1" value="1"><br /><br />
-
-        </div>
+        <input id="cart-select" type="number" name="number" min="1" max="3" step="1" value="1"><br /><br />
         <button class="btn btn-primary m-3" id="sign-in-btn">Submit</button>
 
     </div>
@@ -67,8 +64,8 @@
             <div class="row">
                 <div class="col-12">
                     <h1 class="text-center">Carrito</h1>
-                    <div id="prdtCartList"></div>
-                    <script type="text/x-handlebars-template" id="template">
+                    <div id="cartList"></div>
+                    <script type="text/x-handlebars-template" id="product-cart-template">
                         {{#if listExist}}
                         <ul class="list-group">
                         <button type="button" class="btn btn-outline-danger m-3" id="delete-all">Delete All</button>
@@ -89,8 +86,8 @@
                             </li>
                         {{/each}}
                         {{/if}}
-                        <script type="text/javascript">
-                            $(".btn-delete-item-cart").click((e) => {
+                        <script>
+                        $(".btn-delete-item-cart").click((e) => {
                                 const id = e.target.dataset.id
                                 const idCart = $("#cart-select").val()
                                 const url = "api/carrito/" + idCart + "/prdt/" + id;
@@ -101,7 +98,7 @@
                                     }
                                 }).then(() => {
 
-                                    socket.emit("change-list-cart", idCart)
+                                    socket.emit("change-list-cart")
 
                                 })
                             })
@@ -113,12 +110,12 @@
                                     method: "DELETE",
                                 }).then(() => {
 
-                                    socket.emit("change-list-cart", idCart);
+                                    socket.emit("change-list-cart");
 
                                 });
                             });
-
-                        </script>
+                            
+                            </script>
                     </script>
                 </div>
             </div>
@@ -131,10 +128,8 @@
 <script src="https://code.jquery.com/jquery-3.6.1.min.js"
     integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
-<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"
-    integrity="sha384-/KNQL8Nu5gCHLqwqfQjA689Hhoqgi2S84SNUxC3roTe4EhJ9AfLkp8QiQcU8AMzI"
-    crossorigin="anonymous"></script>
-
+<script src="/socket.io/socket.io.js"></script>
+<script src="./javascripts/socket.io.js"></script>
 <script src="./javascripts/userCart.js"></script>
 
 

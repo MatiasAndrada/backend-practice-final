@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const loggerDEV = require("morgan");
@@ -7,7 +8,8 @@ const logger = require("./logs/logger");
 //
 
 const app = express();
-app.set("port", 8080)
+//configuracion de puerto
+app.set("port", process.env.PORT || 8080);
 const dbConfig = require("./config");
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
@@ -21,9 +23,8 @@ const io = new Server(httpServer);
 const socket = require("socket.io");
 
 // view engine setup
-
-app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
+app.set("views", path.join(__dirname, "views"));
 app.use(loggerDEV("dev"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -62,34 +63,18 @@ const server = app.listen(app.get("port"), () => {
 //!SOCKET
 const io = socket(server);
 io.on("connection", (socket) => {
-  console.log("nuevo socketc conectado");
-  socket.emit("server to client");
-  socket.on("client to server", () => {
-    console.log("client to server");
-  });
-  /*   console.log("nuevo socket connectado:", socket.id);
-  console.log(socket.handshake.url);
-  const emitPrdt = async () => {
-    const prdt = await fetch("api/productos");
-    console.log("fetch 0");
-
-    console.log(prdt);
-    console.log("fetch 1");
-    //socket.emit("refresh-new-products", prdt);
-  };
-  emitPrdt() 
-
+  console.log("nuevo socket connectado:", socket.id);
   socket.on("change-list", () => {
     console.log("change-list");
     io.sockets.emit("refresh-new-products");
   });
-  socket.on("change-list-cart", (idCart) => {
-    socket.emit("refresh-new-products-cart", idCart);
-  }); */
+  socket.on("change-list-cart", () => {
+    socket.emit("refresh-new-products-cart");
+  }); 
 });
 
 //!ROUTES
-app.use("/", require("./routes/auth")(passport));
+app.use("/", require("./routes/primaryRoutes")(passport));
 app.use("/api", require("./routes/info"));
 app.use("/api/productos", require("./routes/productos"));
 app.use("/api/carrito", require("./routes/carrito"));

@@ -11,7 +11,7 @@ const isAuthenticated = function (req, res, next) {
 };
 
 //Carts
-router.post("/", isAuthenticated, async (req, res) => {
+router.post("/",/*  isAuthenticated, */ async (req, res) => {
   //Recibe y agrega un carrito, y devuelve su id asignado.
   logger.info("POST /api/carrito");
   let allCart = await cartApi.getAll();
@@ -28,6 +28,7 @@ router.post("/", isAuthenticated, async (req, res) => {
     productos: [],
   };
   allCart.push(newCart);
+  console.log(allCart);
   await cartApi.saveAll(allCart);
   res.send({ id: newId });
 });

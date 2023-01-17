@@ -1,44 +1,9 @@
-const socket = io.connect();
-
-
-// client-side
-  socket.on("refresh-new-products-cart", () => {
-    getCartList();
-  });
-
-
-
-
-function renderPartialhbs(data) {
-  const template = Handlebars.compile($("#template").html());
-  const html = template({ list: data, listExist: true });
-  $("#prdtCartList").html(html);
-}
-
-function getCartList() {
-  const idCart = localStorage.getItem("idCart");
-  if (idCart) {
-    $.ajax({ moment: "GET", url: "/api/carrito/" + idCart + "/prdt" }).done(
-      (data) => {
-        if (data.length > 0) {
-          renderPartialhbs(data);
-          $("#deleteAll").show();
-        } else {
-          $("#prdtCartList").html(
-            '<h3 class="text-center m-4">No hay productos cargados</h3>'
-          );
-        }
-      }  
-    );
-  }
-}
-
-$("#sign-in-btn").submit(function (e) {
+$("#sign-in-btn").click(function (e) {
   e.preventDefault();
   const cartSelect = $("#cart-select").val();
   if (cartSelect) {
     localStorage.setItem("idCart", cartSelect);
-    getCartId();
+    socket.emit("change-list-cart");
   }
   $("#sign-in-form").html(
     `<button id="log-out-btn" class="btn-danger">Log Out</button>`
@@ -66,3 +31,4 @@ $("#product-form").submit(function (e) {
     $("#product-form")[0].reset();
   });
 });
+

@@ -99,28 +99,12 @@ class ContainerFirebase {
   }
 
   async createAll(arrayCreate) {
-    if ("timestamp(producto)" in arrayCreate[0]) {
+    try {
       for (let i = 0; i < arrayCreate.length; i++) {
-        let doc = this.coleccion.doc(`${arrayCreate[i].id}`);
-        await doc.create({
-          "timestamp(producto)": arrayCreate[i]["timestamp(producto)"],
-          name: arrayCreate[i].name,
-          description: arrayCreate[i].description,
-          code: arrayCreate[i].code,
-          thumbnail: arrayCreate[i].thumbnail,
-          price: arrayCreate[i].price,
-          stock: arrayCreate[i].stock,
-        });
+        await this.coleccion.doc(`${i + 1}`).set(arrayCreate[i]);
       }
-    }
-    if ("timestamp(carrito)" in arrayCreate[0]) {
-      for (let i = 0; i < arrayCreate.length; i++) {
-        let doc = this.coleccion.doc(`${arrayCreate[i].id}`);
-        await doc.create({
-          "timestamp(carrito)": arrayCreate[i]["timestamp(carrito)"],
-          productos: arrayCreate[i].productos,
-        });
-      }
+    } catch (error) {
+      throw new Error(`Error al crear el objeto en el archivo: ${error}`);
     }
   }
 }

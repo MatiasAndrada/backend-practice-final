@@ -16,7 +16,7 @@ module.exports = function (passport) {
   router.post(
     "/login",
     passport.authenticate("login", {
-      successRedirect: "/dashboard",
+      successRedirect: "/home",
       failureRedirect: "/login-error",
       failureFlash: true,
     })
@@ -37,17 +37,22 @@ module.exports = function (passport) {
     })
   );
 
-  /* GET Dashboard Page */
-  router.get("/dashboard", isAuthenticated, function (req, res) {
-    res.sendFile("dashboard.html", { root: "public", user: req.user });
+  /* GET home Page */
+  router.get("/home", isAuthenticated, function (req, res) {
+    res.sendFile("home.html", { root: "public", user: req.user });
   });
-  /* GEt user Data */
+  /* GET user dashboard */
+  router.get("/dashboard", isAuthenticated, (req, res) => {
+    res.sendFile("dashboard.html", req.user);
+  });
+
+  /* GET user Data */
   router.get("/datos", isAuthenticated, (req, res) => {
-    res.render("datos", req.user);
+    res.render("datos", { root: "public", user: req.user });
   });
 
   /* GET login-error */
-  router.get("/login-error", function (req, res) {
+  router.get("/login-error", function (req, res) { 
     res.render("login-error");
   });
 
