@@ -1,5 +1,5 @@
 const  mongoose = require( 'mongoose');
-const  config  = require( '../config.js');
+const  config  = require( '../../config.js');
 
 //await mongoose.connect(config.mongodb.cnxStr, config.mongodb.options)
 class ContainerMongo {

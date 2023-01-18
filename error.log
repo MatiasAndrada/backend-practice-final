@@ -1,5 +1,0 @@
-2023-01-17T06:50:24.280Z error: GET /api/carrito/:idcart/prdt - Carrito no encontrado
-2023-01-17T06:50:42.057Z error: POST /api/carrito/:id/:id_prdt - Carrito no encontrado
-2023-01-17T06:50:42.744Z error: GET /api/carrito/:idcart/prdt - Carrito no encontrado
-2023-01-17T06:51:40.697Z error: GET /api/carrito/:idcart/prdt - Carrito no encontrado
-2023-01-17T06:57:36.623Z error: GET /api/carrito/:idcart/prdt - Carrito no encontrado

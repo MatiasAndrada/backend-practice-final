@@ -1,5 +1,0 @@
-{
-    "codedeploy.region": "us-east-1",
-    "codedeploy.applicationName": "backend-test",
-    "codedeploy.isApplicationWorkspace": true
-}
