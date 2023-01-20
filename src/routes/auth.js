@@ -1,9 +1,4 @@
 const router = require("express").Router();
-const isAuthenticated = function (req, res, next) {
-  if (req.isAuthenticated()) return next();
-
-  res.redirect("/");
-};
 
 module.exports = function (passport) {
   /* GET login page. */
@@ -32,27 +27,13 @@ module.exports = function (passport) {
     "/register",
     passport.authenticate("signup", {
       successRedirect: "/",
-      failureRedirect: "/register",
+      failureRedirect: "/register-error",
       failureFlash: true,
     })
   );
 
-  /* GET home Page */
-  router.get("/home", isAuthenticated, function (req, res) {
-    res.sendFile("home.html", { root: "public", user: req.user });
-  });
-  /* GET user dashboard */
-  router.get("/dashboard", isAuthenticated, (req, res) => {
-    res.sendFile("dashboard.html", req.user);
-  });
-
-  /* GET user Data */
-  router.get("/datos", isAuthenticated, (req, res) => {
-    res.render("datos", { root: "public", user: req.user });
-  });
-
   /* GET login-error */
-  router.get("/login-error", function (req, res) { 
+  router.get("/login-error", function (req, res) {
     res.render("login-error");
   });
 

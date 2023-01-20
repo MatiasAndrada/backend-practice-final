@@ -68,7 +68,8 @@ io.on("connection", (socket) => {
 });
 
 //!ROUTES
-app.use("/", require("./routes/primaryRoutes")(passport));
+app.use("/", require("./routes/primary"));
+app.use("/", require("./routes/auth")(passport));
 app.use("/api", require("./routes/info"));
 app.use("/api/productos", require("./routes/productos"));
 app.use("/api/carrito", require("./routes/carrito"));
