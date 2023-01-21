@@ -1,7 +1,7 @@
 const  mongoose = require( 'mongoose');
 const  config  = require( '../../config.js');
 
-//await mongoose.connect(config.mongodb.cnxStr, config.mongodb.options)
+//await mongoose.connect(config.dbConfig.mongodb.cnxStr, config.dbConfig.mongodb.options)
 class ContainerMongo {
 
     constructor(nombreColeccion, esquema) {
@@ -9,7 +9,7 @@ class ContainerMongo {
     }
 
     async getAll(){
-        await mongoose.connect(config.mongodb.cnxStr, config.mongodb.options)
+        await mongoose.connect(config.dbConfig.mongodb.cnxStr, config.dbConfig.mongodb.options)
         try{
             const respuesta = await this.coleccion.find().sort({id: 1})
             mongoose.connection.close()
@@ -20,7 +20,7 @@ class ContainerMongo {
     }
 
     async getById(x){
-        await mongoose.connect(config.mongodb.cnxStr, config.mongodb.options)
+        await mongoose.connect(config.dbConfig.mongodb.cnxStr, config.dbConfig.mongodb.options)
         try{
             const respuesta = await this.coleccion.find({id:{$eq: `${x}`}})
             mongoose.connection.close()
@@ -38,7 +38,7 @@ class ContainerMongo {
                 await this.coleccion.insertMany(newArray)
             }else{
                 await this.coleccion.deleteMany({})
-                await mongoose.connect(config.mongodb.cnxStr, config.mongodb.options)
+                await mongoose.connect(config.dbConfig.mongodb.cnxStr, config.dbConfig.mongodb.options)
                 await this.coleccion.insertMany(newArray)
             }
             mongoose.connection.close()
@@ -64,7 +64,7 @@ class ContainerMongo {
     }
 
     async putById(x,newObj){
-        await mongoose.connect(config.mongodb.cnxStr, config.mongodb.options)
+        await mongoose.connect(config.dbConfig.mongodb.cnxStr, config.dbConfig.mongodb.options)
         try{
             await this.coleccion.replaceOne({id:{$eq: `${x}`}} ,newObj)
             mongoose.connection.close()
@@ -84,7 +84,7 @@ class ContainerMongo {
     }
 
     async deleteAll(){
-        await mongoose.connect(config.mongodb.cnxStr, config.mongodb.options)
+        await mongoose.connect(config.dbConfig.mongodb.cnxStr, config.dbConfig.mongodb.options)
         try{
             await this.coleccion.deleteMany({})
             mongoose.connection.close()

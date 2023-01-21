@@ -1,13 +1,28 @@
-var mongoose = require('mongoose');
-module.exports = mongoose.model('User',{
-        username: String,
-        password: String,
-	email: String,
-	firstName: String,
-	lastName: String,
-	age: Number,
-	country: String,
-	city: String,
-	address: String,
-	phone: Number,
+const { appconfig } = require("../config");
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema
+
+const userSchema = Schema({
+  username: String,
+  password: String,
+  email: String,
+  firstName: String,
+  lastName: String,
+  age: Number,
+  country: String,
+  city: String,
+  address: String,
+  phone: Number,
+  iconUrl: String,
 });
+
+userSchema.methods.setIconUrl = function setIconUrl (filename){
+	const {port, host} = appconfig;
+	this.iconUrl = `${host}:${port}/public/${filename}`
+
+}
+
+
+module.exports = mongoose.model("User", userSchema);
+	 
+

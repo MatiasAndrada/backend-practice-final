@@ -2,7 +2,7 @@ const admin = require("firebase-admin");
 const config = require("../../config");
 
 admin.initializeApp({
-  credential: admin.credential.cert(config.firebase),
+  credential: admin.credential.cert(config.dbConfig.firebase),
 });
 const db = admin.firestore();
 //const this.coleccion = db.collection('productos')

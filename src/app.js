@@ -9,11 +9,11 @@ const logger = require("./logs/logger");
 
 const app = express();
 //configuracion de puerto
-app.set("port", process.env.PORT || 8080);
-const dbConfig = require("./config");
+app.set("port", process.env.APP_PORT || 8080);
+const config = require("./config");
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-mongoose.connect(dbConfig.mongodb.cnxStr);
+mongoose.connect(config.dbConfig.mongodb.cnxStr);
 const socket = require("socket.io");
 
 // view engine setup
@@ -24,6 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static("public"));
+app.use("/public", express.static(`${__dirname}/storage/imgs`))
 
 //!PASSPORT
 

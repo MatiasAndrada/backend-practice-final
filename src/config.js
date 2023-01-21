@@ -1,4 +1,9 @@
  module.exports = {
+    appconfig: {
+        host: process.env.APP_HOST,
+        port: process.env.APP_PORT
+    },
+    dbConfig:{
     fileSystem: {
         path: './DB/'
     },
@@ -20,5 +25,6 @@
         "token_uri": "https://oauth2.googleapis.com/token",
         "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
         "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-jjpyn%40pichulitoo-5e382.iam.gserviceaccount.com"
-      },
+      }
+    }
 }

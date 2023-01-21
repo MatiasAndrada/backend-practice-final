@@ -1,4 +1,6 @@
 const router = require("express").Router();
+const upload = require("../multer/users");
+
 
 module.exports = function (passport) {
   /* GET login page. */
@@ -25,11 +27,13 @@ module.exports = function (passport) {
   /* Handle Registration POST */
   router.post(
     "/register",
+    upload.single("icon"),
     passport.authenticate("signup", {
       successRedirect: "/",
       failureRedirect: "/register-error",
       failureFlash: true,
     })
+    
   );
 
   /* GET login-error */

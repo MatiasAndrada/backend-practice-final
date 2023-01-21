@@ -1,9 +1,9 @@
 const  fs = require( 'fs')
-const  config =  require( '../config.js')
+const  config =  require( '../../config')
 
 class ContenedorFile{
     constructor(fileData){
-        this.fileData = `${config.fileSystem.path}/${fileData}`;
+        this.fileData = `${config.dbConfig.fileSystem.path}/${fileData}`;
     }
     
     //Metodos de la clase
