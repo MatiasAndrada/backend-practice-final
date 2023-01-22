@@ -1,6 +1,6 @@
 const router = require("express").Router();
-const upload = require("../multer/users");
-
+const multer  = require('multer')
+const upload = multer({ dest: './public/images/avatars/' })
 
 module.exports = function (passport) {
   /* GET login page. */
@@ -25,16 +25,15 @@ module.exports = function (passport) {
   });
 
   /* Handle Registration POST */
-  router.post(
-    "/register",
-    upload.single("icon"),
-    passport.authenticate("signup", {
-      successRedirect: "/",
-      failureRedirect: "/register-error",
-      failureFlash: true,
-    })
-    
-  );
+  router.post("/register", upload.single('uploaded_file'), function (req,res) {
+    console.log(req.file, req.body)
+/*       passport.authenticate("signup", {
+        successRedirect: "/home",
+        failureRedirect: "/register-error",
+        failureFlash: true,
+      })(req, res); */
+    });
+
 
   /* GET login-error */
   router.get("/login-error", function (req, res) {

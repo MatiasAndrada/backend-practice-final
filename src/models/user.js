@@ -13,14 +13,8 @@ const userSchema = Schema({
   city: String,
   address: String,
   phone: Number,
-  iconUrl: String,
+  avatar: String,
 });
-
-userSchema.methods.setIconUrl = function setIconUrl (filename){
-	const {port, host} = appconfig;
-	this.iconUrl = `${host}:${port}/public/${filename}`
-
-}
 
 
 module.exports = mongoose.model("User", userSchema);

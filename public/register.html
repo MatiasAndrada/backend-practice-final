@@ -17,7 +17,7 @@
     <div class="jumbotron">
       <h1>REGISTER</h1>
       <br>
-      <form class="form" role="form" action='/register' method='POST'>
+      <form class="form" role="form" action='/register' enctype="multipart/form-data" method='POST'>
 
         <div class="form-group">
           <input id="nom" name='username' placeholder="username" class="form-control" type="text" required autofocus>
@@ -53,7 +53,7 @@
         <div>
           <Label for="archivo"> Elija su foto de perfil:</label>
           <br>
-          <input type="file" name="icon"> 
+          <input type="file" name="uploaded_file"> 
         </div>
         <div class="form-group">
           <input class="btn btn-success my-3" type="submit" value="Register">

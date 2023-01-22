@@ -31,8 +31,6 @@ module.exports = function (passport) {
               // create the user
               var newUser = new User();
               // set the user's local credentials
-              console.log(req.body)
-              console.log("1",req.file)
               
               newUser.username = username;
               newUser.password = createHash(password);
@@ -44,12 +42,10 @@ module.exports = function (passport) {
               newUser.city = req.body.city;
               newUser.address = req.body.address;
               newUser.phone = req.body.phone; 
-              
-              if (req.file) {
-                newUser.setIconUrl(req.file.filename);
-              }
-              
+              /* console.log("filename1", req.file.filename)
+              newUser.avatar = req.file.filename; */
 
+              
               // save the user
               newUser.save(function (err) {
                 if (err) {

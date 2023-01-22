@@ -1,4 +1,4 @@
-const path= require("path");
+/* const path= require("path");
 //add multer to manage multipart form
 const multer= require("multer");
 
@@ -6,7 +6,7 @@ const multer= require("multer");
 //that will be uploaded
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, './public/avatars')
+      cb(null, './public/images/avatars')
     },
     filename: function (req, file, cb) {
       cb(null, file.fieldname + '-' + Date.now()  + path.extname(file.originalname))
@@ -18,4 +18,4 @@ let storage = multer.diskStorage({
  //.single expects the name of the file input field
 const upload= multer({storage: storage}).single("avatar");
 
-module.exports= upload;
+module.exports= upload; */
