@@ -1,7 +1,5 @@
 const router = require("express").Router();
-const multer  = require('multer')
-const upload = multer({ dest: './public/images/avatars/' })
-
+const upload = require("../multer/users");
 module.exports = function (passport) {
   /* GET login page. */
   router.get("/", function (req, res) {
