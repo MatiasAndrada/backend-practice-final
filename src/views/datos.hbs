@@ -1,6 +1,5 @@
-
 <div class="container text-center my-3">
-    <div class="jumbotron" style="background-color: green;color: white;">
+    <div class="jumbotron" style="background-color: green;color: white; ">
         <h1>User Data</h1>
         <h2><i>Bienvenido {{user.username}}</i></h2>
         <br>
@@ -14,13 +13,11 @@
         <h3>Phone: {{user.phone}} </h3>
         <h3>Avatar: </h3>
 
-        <img src="{{user.avatarUrl}}" alt="Avatar" style="width: 200px; height: 200px; border-radius: 50%;">
+        <img src="{{user.avatarUrl}}" alt="Avatar" style="width: 200px; height: 200px; border-radius: 50%; align-items-end">
 
 
         <button class="btn btn-primary m-2" onclick="location.href='/home'">Home</button>
-        
 
-        
         <button class="btn btn-danger m-2" onclick="location.href='/signout'">LOGOUT</button>
     </div>
 </div>
