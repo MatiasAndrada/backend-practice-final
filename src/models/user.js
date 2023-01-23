@@ -13,8 +13,14 @@ const userSchema = Schema({
   city: String,
   address: String,
   phone: Number,
-  avatar: String,
+  avatarUrl: String,
 });
+
+userSchema.methods.setAvatarUrl = function setAvatarUrl (filename){
+	const {port, host} = appconfig;
+	this.avatarUrl = `${host}:${port}/public/${filename}`
+
+}
 
 
 module.exports = mongoose.model("User", userSchema);

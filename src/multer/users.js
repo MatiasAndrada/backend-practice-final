@@ -6,10 +6,10 @@ const multer= require("multer");
 //that will be uploaded
 let storage = multer.diskStorage({
     destination: function (req, file, cb) {
-      cb(null, './storage/images/avatars')
+      cb(null, './src/storage/images/avatars')
     },
     filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+      cb(null, Date.now() + path.extname(file.originalname))
     }
   })
 
