@@ -1,11 +1,10 @@
-'use strict';
+"use strict";
 const express = require("express");
 require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const loggerDEV = require("morgan");
 const logger = require("./logs/logger");
-
 
 const app = express();
 //configuracion de puerto
@@ -24,8 +23,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static("public"));
-app.use("/public", express.static(`${__dirname}/storage/images/avatars`))
-
+app.use("/public", express.static(`${__dirname}/storage/images/avatars`));
 
 //!PASSPORT
 
@@ -66,15 +64,15 @@ io.on("connection", (socket) => {
   });
   socket.on("change-list-cart", () => {
     socket.emit("refresh-new-products-cart");
-  }); 
+  });
 });
 
 //!ROUTES
 app.use("/", require("./routes/primary"));
 app.use("/", require("./routes/auth")(passport));
 app.use("/api", require("./routes/info"));
-app.use("/api/productos", require("./routes/productos"));
-app.use("/api/carrito", require("./routes/carrito"));
+app.use("/api/products", require("./routes/products"));
+app.use("/api/cart", require("./routes/cart"));
 
 // catch 404 and forward to error handler
 app.use("*", (req, res) => {

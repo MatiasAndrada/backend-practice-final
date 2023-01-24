@@ -1,5 +1,5 @@
 const LocalStrategy = require("passport-local").Strategy;
-const User = require("../models/user");
+const User = require("../models/user.model");
 const bCrypt = require("bcryptjs");
 const logger = require("../logs/logger");
 module.exports = function (passport) {
@@ -44,11 +44,6 @@ module.exports = function (passport) {
               newUser.phone = req.body.phone;
 
               newUser.setAvatarUrl(req.file.filename);
-
-
-
-
-
 
               // save the user
               newUser.save(function (err) {

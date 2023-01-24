@@ -8,7 +8,7 @@
         path: './DB/'
     },
     mongodb: {
-        cnxStr: "mongodb+srv://Pichulitoo7:Pichu2909@cluster0.rfxozjp.mongodb.net/test",
+        cnxStr: "mongodb+srv://Pichulitoo7:Pichu2909@cluster0.rfxozjp.mongodb.net/backendAppTest",
         options: {
             useNewUrlParser: true,
             useUnifiedTopology: true,

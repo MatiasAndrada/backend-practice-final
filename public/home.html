@@ -72,7 +72,7 @@
                 const idPrdt = e.target.dataset.id;
                 const idCart = $("#cart-select").val()
                 console.log(idCart, idPrdt)
-                fetch(`/api/carrito/` + idCart + "/" + idPrdt, {
+                fetch(`/api/cart/` + idCart + "/" + idPrdt, {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/json",
