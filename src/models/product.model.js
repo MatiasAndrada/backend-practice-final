@@ -11,4 +11,6 @@ var ProductSchema = new Schema({
   stock: { type: String, require: true, max: 100 },
 });
 
+
+
 module.exports = mongoose.model("Product", ProductSchema);

@@ -1,17 +1,6 @@
-$("#sign-in-btn").click(function (e) {
-  e.preventDefault();
-  const cartSelect = $("#cart-select").val();
-  if (cartSelect) {
-    localStorage.setItem("idCart", cartSelect);
-    socket.emit("change-list-cart");
-  }
-  $("#sign-in-form").html(
-    `<button id="log-out-btn" class="btn-danger">Log Out</button>`
-  );
-  $("#log-out-btn").click(function () {
-    location.reload();
-  });
-});
+
+
+socket.emit("change-list-cart")
 
 $("#product-form").submit(function (e) {
   e.preventDefault();
@@ -31,4 +20,5 @@ $("#product-form").submit(function (e) {
     $("#product-form")[0].reset();
   });
 });
+
 

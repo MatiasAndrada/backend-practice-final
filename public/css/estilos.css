@@ -1,7 +1,6 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: rgb(24, 23, 23);
+  background-color: rgb(51, 74, 165);
 }
 
 a {
@@ -13,4 +12,8 @@ h1 {
 
 h2 {
   color: rgb(255, 0, 68);
+}
+
+h4{
+  font-size: 1.2em;
 }

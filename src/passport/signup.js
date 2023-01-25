@@ -43,9 +43,7 @@ module.exports = function (passport) {
               newUser.city = req.body.city;
               newUser.address = req.body.address;
               newUser.phone = req.body.phone;
-
-              newUser.setAvatarUrl(req.file.filename);
-
+              newUser.avatarFilename = req.file.filename;
               // create a new cart for the user
               var newCart = new Cart();
               newCart.owner = newUser._id;

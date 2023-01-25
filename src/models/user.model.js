@@ -1,8 +1,10 @@
 const { appconfig } = require("../config");
+//Para pasar el virtual como Json
+
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
-const userSchema = Schema({
+const userSchema = new Schema({
   username: String,
   password: String,
   email: String,
@@ -13,15 +15,24 @@ const userSchema = Schema({
   city: String,
   address: String,
   phone: Number,
-  avatarUrl: String,
+  avatarFilename: String,
 });
 
+userSchema.virtual("avatarUrl").get(function () {
+  const { port, host } = appconfig;
+  return `http://${host}:${port}/public/${this.avatarFilename}`
+})
+
+module.exports = mongoose.model("User", userSchema);
+
+
+
+/*
 userSchema.methods.setAvatarUrl = function setAvatarUrl(filename) {
   const { port, host } = appconfig;
   this.avatarUrl = `http://${host}:${port}/public/${filename}`
 
-}
+}*/
 
 
-module.exports = mongoose.model("User", userSchema);
 

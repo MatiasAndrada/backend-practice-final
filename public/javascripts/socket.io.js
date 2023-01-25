@@ -1,9 +1,10 @@
 const socket = io();
 function renderPartialhbs(IdTemplate, dataRender, IdInsertTemplate) {
   const template = Handlebars.compile($(IdTemplate).html());
-  const html = template({ list: dataRender, listExist: true });
+  const html = template({ list: dataRender });
   $(IdInsertTemplate).html(html);
 }
+
 
 socket.on("connect", () => {
   console.log("socket id:", socket.id);
