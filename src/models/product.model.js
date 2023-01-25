@@ -1,7 +1,7 @@
-const mongoose = require("mongoose");
-const Schema = mongoose.Schema;
+var mongoose = require("mongoose");
+var Schema = mongoose.Schema;
 
-const ProductSchema = new Schema({
+var ProductSchema = new Schema({
   timestamp: { type: String, require: true, max: 100 },
   name: { type: String, require: true, max: 100 },
   description: { type: String, require: true, max: 100 },

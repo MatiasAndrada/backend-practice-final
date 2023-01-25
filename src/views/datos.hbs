@@ -1,23 +1,22 @@
-<div class="container text-center my-3">
-    <div class="jumbotron" style="background-color: green;color: white; ">
-        <h1>User Data</h1>
+{{!-- {{> header title="User Data"}} --}}
+<div class="container  my-3">
+    <div class="jumbotron text-center" style="background-color: green;color: white; ">
         <h2><i>Bienvenido {{user.username}}</i></h2>
         <br>
-        <h3>Name: </h3>{{user.firstName}} {{user.lastName}}</h3>
-        <h3>email: {{user.email}}</h3>
+        <h3>Name: {{user.firstName}} {{user.lastName}}</h3>
+        <h3>Email: {{user.email}}</h3>
         <h3>Age: {{user.age}}</h3>
-        <h3>Country </h3>
+        <h3>Country: {{user.country}}</h3>
         <h3>City: {{user.city}}</h3>
-        <h3>Zip Code: {{user.zipCode}}</h3>
         <h3>Address: {{user.address}}</h3>
         <h3>Phone: {{user.phone}} </h3>
         <h3>Avatar: </h3>
-
-        <img src="{{user.avatarUrl}}" alt="Avatar" style="width: 200px; height: 200px; border-radius: 50%; align-items-end">
-
+        <img src="{{user.avatarUrl}}" alt="Avatar" style="width: 250px; height: 250px; border-radius: 50%;">
+        <br>
 
         <button class="btn btn-primary m-2" onclick="location.href='/home'">Home</button>
 
-        <button class="btn btn-danger m-2" onclick="location.href='/signout'">LOGOUT</button>
+        <button class="btn btn-danger m-2" onclick="location.href='/signout'">LogOut</button>
     </div>
 </div>
+

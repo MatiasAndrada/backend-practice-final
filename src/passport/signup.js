@@ -2,6 +2,7 @@ const LocalStrategy = require("passport-local").Strategy;
 const User = require("../models/user.model");
 const bCrypt = require("bcryptjs");
 const logger = require("../logs/logger");
+const Cart = require("../models/cart.model");
 module.exports = function (passport) {
   passport.use(
     "signup",
@@ -44,6 +45,18 @@ module.exports = function (passport) {
               newUser.phone = req.body.phone;
 
               newUser.setAvatarUrl(req.file.filename);
+
+              // create a new cart for the user
+              var newCart = new Cart();
+              newCart.owner = newUser._id;
+              newCart.save(function (err) {
+                if (err) {
+                  logger.error(`Error: ${err}`);
+                  throw err;
+                }
+                logger.info("Cart created");
+              });
+              
 
               // save the user
               newUser.save(function (err) {

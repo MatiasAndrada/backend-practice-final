@@ -21,7 +21,7 @@ socket.on("refresh-new-products-cart", async () => {
 
 //!GET DATA
 function getProductList() {
-  const data = fetch("/api/productos", {
+  const data = fetch("/api/product", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
@@ -39,40 +39,19 @@ function getProductList() {
 }
 
 function getCartList() {
-  const idCart = localStorage.getItem("idCart");
-    const data = fetch(`/api/carrito/${idCart}/prdt`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    })
-      .then((res) => {
-        if(res.status == 400) {
-          createCart()
-        }
-        if (res.status === 200) {
-          return res.json();
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-    return data;
-  }
-
-function createCart() {
-fetch("/api/carrito", {
-    method: "POST",
+  const data = fetch(`/api/cart`, {
+    method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
   })
     .then((res) => {
       if (res.status === 200) {
-        console.log("Cart created");
+        return res.json();
       }
     })
     .catch((err) => {
       console.log(err);
     });
-}
+    return data;
+  }

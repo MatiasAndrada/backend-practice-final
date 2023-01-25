@@ -57,9 +57,7 @@ const server = app.listen(app.get("port"), () => {
 //!SOCKET
 const io = socket(server);
 io.on("connection", (socket) => {
-  console.log("nuevo socket connectado:", socket.id);
   socket.on("change-list", () => {
-    console.log("change-list");
     io.sockets.emit("refresh-new-products");
   });
   socket.on("change-list-cart", () => {
@@ -67,11 +65,20 @@ io.on("connection", (socket) => {
   });
 });
 
+//!MANEJADOR DE ERRORES
+app.use((err, req, res, next) => {
+  logger.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${
+    req.method
+  } - ${req.ip}`);
+  res.status(err.status || 500);
+  res.send("Error interno del servidor");
+});
+
 //!ROUTES
 app.use("/", require("./routes/primary"));
 app.use("/", require("./routes/auth")(passport));
 app.use("/api", require("./routes/info"));
-app.use("/api/products", require("./routes/products"));
+app.use("/api/product", require("./routes/product"));
 app.use("/api/cart", require("./routes/cart"));
 
 // catch 404 and forward to error handler

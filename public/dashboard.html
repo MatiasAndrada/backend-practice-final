@@ -25,16 +25,9 @@
         </ul>
         </div>
     </nav>
+    <!-- End Navbar -->
 
-    <div class="container">
-
-        <h2 class="text-center">Sign In</h2>
-        <p class="text-center m-1">Debes iniciar sesion para ver tu carrito!</p>
-        <input id="cart-select" type="number" name="number" min="1" max="3" step="1" value="1"><br /><br />
-        <button class="btn btn-primary m-3" id="sign-in-btn">Submit</button>
-
-    </div>
-
+    <!-- Form product -->
     <div class="container" id="admin-section">
         <div class="container">
             <form class="form__form" id="product-form">
@@ -59,7 +52,9 @@
             </form>
         </div>
 
+        <!-- End Form product -->
 
+        <!-- List product -->
         <div class="container ">
             <div class="row">
                 <div class="col-12">
@@ -68,7 +63,7 @@
                     <script type="text/x-handlebars-template" id="product-cart-template">
                         {{#if listExist}}
                         <ul class="list-group">
-                        <button type="button" class="btn btn-outline-danger m-3" id="delete-all">Delete All</button>
+                        <button type="button" class="btn btn-outline-danger m-3 delete-all">Delete All</button>
                         {{#each list}}
                             <li class="list-group-item">
                                 <div class="row">
@@ -80,42 +75,32 @@
                                     <p>{{this.price}}</p>
                                     <p>{{this.description}}</p>
                                     <p>{{this.timestamp}}</p>
-                                    <button type="button" class="btn btn-outline-danger btn-delete-item-cart"  data-id={{this.id}}>Delete Item</button>
+                                    <button type="button" class="btn btn-outline-danger btn-delete-item-cart"  data-id={{this._id}}>Delete Item</button>
                                     </div>
                                 </div>
                             </li>
                         {{/each}}
                         {{/if}}
                         <script>
-                        $(".btn-delete-item-cart").click((e) => {
-                                const id = e.target.dataset.id
-                                const idCart = $("#cart-select").val()
-                                const url = "api/carrito/" + idCart + "/prdt/" + id;
-                                fetch(url, {
+                            $(".btn-delete-item-cart").click((e) => {
+                                fetch(`api/cart/product/${e.target.dataset.id}`, {
                                     method: "DELETE",
                                     headers: {
                                         'Content-type': 'application/json'
                                     }
                                 }).then(() => {
-
                                     socket.emit("change-list-cart")
-
                                 })
                             })
 
-                            $("#delete-all").click(() => {
-                                const idCart = $("#cart-select").val()
-
-                                fetch("/api/carrito/" + idCart, {
+                            $(".delete-all").click(() => {
+                                fetch("/api/cart/product", {
                                     method: "DELETE",
                                 }).then(() => {
-
                                     socket.emit("change-list-cart");
-
                                 });
                             });
-                            
-                            </script>
+                        </script>
                     </script>
                 </div>
             </div>

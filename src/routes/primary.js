@@ -11,7 +11,7 @@ router.get("/home", isAuthenticated, function (req, res) {
 });
 /* GET user dashboard */
 router.get("/dashboard", isAuthenticated, (req, res) => {
-  res.sendFile("dashboard.html", req.user);
+  res.sendFile("dashboard.html", { root: "public", user: req.user });
 });
 
 /* GET user Data */

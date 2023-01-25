@@ -1,1 +1,30 @@
 2023-01-20T19:32:14.851Z warn: User already exists
+2023-01-24T19:31:32.342Z warn: User Not found with username diego
+2023-01-24T19:38:58.356Z warn: Invalid Password
+2023-01-24T19:42:27.507Z warn: Invalid Password
+2023-01-24T20:25:56.069Z warn: Invalid Password
+2023-01-24T21:03:33.186Z warn: Invalid Password
+2023-01-24T21:07:02.987Z warn: Invalid Password
+2023-01-24T21:08:26.080Z warn: Invalid Password
+2023-01-24T21:13:42.230Z warn: Invalid Password
+2023-01-24T21:14:18.779Z warn: Invalid Password
+2023-01-24T21:27:23.953Z warn: Invalid Password
+2023-01-24T21:37:42.460Z warn: Invalid Password
+2023-01-24T21:42:59.378Z warn: Invalid Password
+2023-01-24T21:47:16.524Z warn: Invalid Password
+2023-01-24T21:50:26.291Z warn: Invalid Password
+2023-01-24T21:50:32.945Z error: POST /api/cart/product/:product_id - Error al buscar el producto
+2023-01-24T22:47:47.998Z error: POST /api/cart/product/:product_id - Error al buscar el producto
+2023-01-24T22:48:08.915Z error: POST /api/cart/product/:product_id - Error al buscar el producto
+2023-01-24T22:52:32.804Z warn: Invalid Password
+2023-01-24T22:52:37.971Z warn: Invalid Password
+2023-01-24T22:52:52.891Z error: POST /api/cart/product/:product_id - Error al buscar el producto
+2023-01-24T22:53:11.815Z error: POST /api/cart/product/:product_id - Error al buscar el producto
+2023-01-24T22:53:16.450Z error: POST /api/cart/product/:product_id - Error al buscar el producto
+2023-01-24T23:18:10.692Z warn: Invalid Password
+2023-01-24T23:22:37.409Z warn: Invalid Password
+2023-01-24T23:22:41.966Z warn: Invalid Password
+2023-01-24T23:28:47.390Z warn: Invalid Password
+2023-01-24T23:30:49.594Z warn: Invalid Password
+2023-01-24T23:45:47.738Z warn: Invalid Password
+2023-01-24T23:45:52.801Z warn: Invalid Password
