@@ -25,12 +25,12 @@ router.get("/", isAuthenticated, function (req, res, next) {
         .exec(function (err, cart) {
             if (err) return next(err);
             res.json(cart);
+            console.log(cart)
         });
 });
 
 router.post("/:product_id", isAuthenticated, function (req, res, next) {
     //Agregar un producto al carrito
-    console.log(req.body)
     logger.info("POST /api/cart/:product_id");
     Cart.findOne({ owner: req.user._id }, function (err, cart) {
         if (err) return next(err);
@@ -52,7 +52,8 @@ router.post("/:product_id", isAuthenticated, function (req, res, next) {
         });
     });
 });
-router.delete("/:product_id", isAuthenticated, function (req, res, next) {
+router.delete("/:product_id", isAuthenticated, function (req, res, next) 
+{
     //Eliminar un producto del carrito
     logger.info("DELETE /api/cart/:product_id");
     Cart.findOne({ owner: req.user._id }, function (err, cart) {
@@ -68,7 +69,7 @@ router.delete("/:product_id", isAuthenticated, function (req, res, next) {
             res.send("Se ha eliminado el item del carrito").status(200)
         });
     });
-}
+}   
 );
 
 router.delete("/", isAuthenticated, function (req, res, next) {
@@ -87,4 +88,4 @@ router.delete("/", isAuthenticated, function (req, res, next) {
     });
 });
 
-module.exports = router;
+module.exports = router;    
