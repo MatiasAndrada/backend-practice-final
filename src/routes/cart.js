@@ -3,6 +3,7 @@
 const router = require("express").Router();
 const logger = require("../logs/logger");
 const Cart = require("../models/cart.model");
+const Product = require("../models/product.model");
 
 //Auth
 const isAuthenticated = function (req, res, next) {
@@ -25,13 +26,13 @@ router.get("/", isAuthenticated, function (req, res, next) {
         .exec(function (err, cart) {
             if (err) return next(err);
             res.json(cart);
-            console.log(cart)
         });
 });
 
 router.post("/:product_id", isAuthenticated, function (req, res, next) {
     //Agregar un producto al carrito
     logger.info("POST /api/cart/:product_id");
+    console.log(req.params.product_id)
     Cart.findOne({ owner: req.user._id }, function (err, cart) {
         if (err) return next(err);
         cart.items.push({
@@ -40,37 +41,29 @@ router.post("/:product_id", isAuthenticated, function (req, res, next) {
             priceAmount: parseFloat(req.body.priceAmount),
         });
 
-        cart.total = (
-            cart.total + parseFloat(req.body.priceAmount)
-        ).toFixed(2);
+        cart.total = (cart.total + parseFloat(req.body.priceAmount)).toFixed(2);
         cart.save(function (err) {
             if (err) return next(err);
-            logger.info(
-                "POST /api/cart/:product_id - Producto agregado al carrito"
-            );
-            res.send("Se ha agregado el item al carrito").status(200)
+            logger.info("POST /api/cart/:product_id - Producto agregado al carrito");
+            res.send("Se ha agregado el item al carrito").status(200);
         });
     });
 });
-router.delete("/:product_id", isAuthenticated, function (req, res, next) 
-{
-    //Eliminar un producto del carrito
+router.delete("/:product_id", isAuthenticated, function (req, res, next) {
     logger.info("DELETE /api/cart/:product_id");
+    //Buscar producto por id y eliminar
     Cart.findOne({ owner: req.user._id }, function (err, cart) {
-        cart.items.pull(req.params.product_id);
-        cart.total = (
-            cart.total - parseFloat(req.body.priceAmount)
-        ).toFixed(2);
+        if (err) return next(err)
+        var productId = req.params.product_id
+        cart.items.pull({ item: productId});
+        cart.total = (cart.total - parseFloat(req.body.priceAmount)).toFixed(2);
         cart.save(function (err, found) {
-            if (err) return next(err);
-            logger.info(
-                "DELETE /api/cart/:product_id - Producto eliminado del carrito"
-            );
-            res.send("Se ha eliminado el item del carrito").status(200)
+            if (err) return next(err)
+            logger.info("DELETE /api/cart/:product_id - Producto eliminado del carrito");
+            res.send("Se ha eliminado el item del carrito").status(200);
         });
     });
-}   
-);
+});
 
 router.delete("/", isAuthenticated, function (req, res, next) {
     //Eliminar todos los productos del carrito
@@ -83,9 +76,9 @@ router.delete("/", isAuthenticated, function (req, res, next) {
             logger.info(
                 "DELETE /api/cart - Todos los productos eliminados del carrito"
             );
-            res.send("Se ha eliminado el item del carrito").status(200)
+            res.send("Se ha eliminado el item del carrito").status(200);
         });
     });
 });
 
-module.exports = router;    
+module.exports = router;

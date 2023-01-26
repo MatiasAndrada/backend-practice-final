@@ -32,12 +32,13 @@ router.get("/:product_id", isAuthenticated, function (req, res, next) {
 router.post("/", function (req, res, next) {
     //Crear un producto
     logger.info("POST /api/product");
+    console.log(req.body)
     var product = new Product();
     product.timestamp = moment().format("DD/MM/YYYY HH:mm:ss");
     product.name = req.body.name;
     product.description = req.body.description;
-    product.thumbnail = req.body.thumbnail;
     product.price = req.body.price;
+    product.thumbnail = req.body.thumbnail;
     product.save(function (err) {
         if (err) return next(err);
         logger.info("POST /api/product - Producto creado");

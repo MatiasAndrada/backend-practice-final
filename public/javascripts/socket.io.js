@@ -17,6 +17,7 @@ socket.on("refresh-new-products", async () => {
 
 socket.on("refresh-new-products-cart", async () => {
   const prdtList = await getCartList();
+  console.log("🦇 ~ file: socket.io.js:20 ~ socket.on ~ prdtList", prdtList)
   renderPartialhbs("#product-cart-template", prdtList, "#cartList");
 });
 

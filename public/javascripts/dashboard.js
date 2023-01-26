@@ -4,7 +4,7 @@ socket.emit("change-list-cart")
 
 $("#product-form").submit(function (e) {
   e.preventDefault();
-  fetch("/api/productos", {
+  fetch("/api/product", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -15,10 +15,9 @@ $("#product-form").submit(function (e) {
       price: $("#product-input-price").val(),
       thumbnail: $("#product-input-thumbnail").val(),
     },
-  }).then(() => {
-    socket.emit("change-list");
-    $("#product-form")[0].reset();
+  }).then((res) => {
+    if (res === 200) {
+      $("#product-form")[0].reset()
+    }
   });
 });
-
-

@@ -43,3 +43,22 @@
 2023-01-25T21:10:08.278Z warn: Invalid Password
 2023-01-25T21:16:45.146Z warn: Invalid Password
 2023-01-25T21:23:04.045Z warn: Invalid Password
+2023-01-26T17:46:56.072Z warn: Invalid Password
+2023-01-26T17:47:00.976Z warn: Invalid Password
+2023-01-26T17:48:12.929Z warn: Invalid Password
+2023-01-26T17:51:22.865Z warn: Invalid Password
+2023-01-26T18:00:42.798Z warn: Invalid Password
+2023-01-26T18:02:04.858Z error: 400 - Unexpected token o in JSON at position 1 - /api/productos - POST - ::1
+2023-01-26T18:03:34.519Z warn: Invalid Password
+2023-01-26T18:03:40.227Z warn: Invalid Password
+2023-01-26T18:04:03.036Z error: 400 - Unexpected token o in JSON at position 1 - /api/productos - POST - ::1
+2023-01-26T18:04:03.094Z error: 400 - Unexpected token o in JSON at position 1 - /api/productos - POST - ::1
+2023-01-26T18:04:43.122Z error: 400 - Unexpected token o in JSON at position 1 - /api/productos - POST - ::1
+2023-01-26T18:05:05.238Z error: 400 - Unexpected token o in JSON at position 1 - /api/products - POST - ::1
+2023-01-26T18:05:20.504Z error: 400 - Unexpected token o in JSON at position 1 - /api/products - POST - ::1
+2023-01-26T18:05:21.985Z error: 400 - Unexpected token o in JSON at position 1 - /api/products - POST - ::1
+2023-01-26T18:05:24.002Z error: 400 - Unexpected token o in JSON at position 1 - /api/products - POST - ::1
+2023-01-26T18:05:38.193Z error: 400 - Unexpected token o in JSON at position 1 - /api/product - POST - ::1
+2023-01-26T18:06:15.993Z error: 400 - Unexpected token o in JSON at position 1 - /api/product - POST - ::1
+2023-01-26T18:06:16.143Z error: 400 - Unexpected token o in JSON at position 1 - /api/product - POST - ::1
+2023-01-26T18:06:16.294Z error: 400 - Unexpected token o in JSON at position 1 - /api/product - POST - ::1

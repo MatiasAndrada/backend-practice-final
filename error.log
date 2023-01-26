@@ -5,3 +5,15 @@
 2023-01-24T22:53:11.815Z error: POST /api/cart/product/:product_id - Error al buscar el producto
 2023-01-24T22:53:16.450Z error: POST /api/cart/product/:product_id - Error al buscar el producto
 2023-01-25T18:38:44.239Z error: 400 - Unexpected token o in JSON at position 1 - /api/cart/63d0488d87537f075dc6cb48 - POST - ::1
+2023-01-26T18:02:04.858Z error: 400 - Unexpected token o in JSON at position 1 - /api/productos - POST - ::1
+2023-01-26T18:04:03.036Z error: 400 - Unexpected token o in JSON at position 1 - /api/productos - POST - ::1
+2023-01-26T18:04:03.094Z error: 400 - Unexpected token o in JSON at position 1 - /api/productos - POST - ::1
+2023-01-26T18:04:43.122Z error: 400 - Unexpected token o in JSON at position 1 - /api/productos - POST - ::1
+2023-01-26T18:05:05.238Z error: 400 - Unexpected token o in JSON at position 1 - /api/products - POST - ::1
+2023-01-26T18:05:20.504Z error: 400 - Unexpected token o in JSON at position 1 - /api/products - POST - ::1
+2023-01-26T18:05:21.985Z error: 400 - Unexpected token o in JSON at position 1 - /api/products - POST - ::1
+2023-01-26T18:05:24.002Z error: 400 - Unexpected token o in JSON at position 1 - /api/products - POST - ::1
+2023-01-26T18:05:38.193Z error: 400 - Unexpected token o in JSON at position 1 - /api/product - POST - ::1
+2023-01-26T18:06:15.993Z error: 400 - Unexpected token o in JSON at position 1 - /api/product - POST - ::1
+2023-01-26T18:06:16.143Z error: 400 - Unexpected token o in JSON at position 1 - /api/product - POST - ::1
+2023-01-26T18:06:16.294Z error: 400 - Unexpected token o in JSON at position 1 - /api/product - POST - ::1
