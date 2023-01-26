@@ -8,7 +8,7 @@ const logger = require("./logs/logger");
 
 const app = express();
 //configuracion de puerto
-app.set("port", process.env.APP_PORT || 8080);
+app.set("port", process.env.APP_PORT);
 const config = require("./config");
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
