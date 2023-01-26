@@ -6,7 +6,7 @@ services:
     build: ./
     restart: always
     ports:
-    - "80:4000"
+    - "80:80"
     environment:
-      - HOST=0.0.0.0
-      - PORT=4000
+      - HOST=54.166.245.125
+      - PORT=80
