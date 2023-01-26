@@ -42,8 +42,10 @@ router.post("/", function (req, res, next) {
     product.save(function (err) {
         if (err) return next(err);
         logger.info("POST /api/product - Producto creado");
-        res.send("Producto creado").status(200);
-    });
+        res.status(200)
+    }
+    );
+
 });
 
 

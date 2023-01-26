@@ -2,6 +2,7 @@
 
 socket.emit("change-list-cart")
 
+/*
 $("#product-form").submit(function (e) {
   e.preventDefault();
   fetch("/api/product", {
@@ -21,3 +22,4 @@ $("#product-form").submit(function (e) {
     }
   });
 });
+*/

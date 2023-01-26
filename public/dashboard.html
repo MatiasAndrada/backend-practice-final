@@ -28,27 +28,29 @@
     <!-- End Navbar -->
 
     <!-- Form product -->
-
+    <div class="container" id="admin-section">
         <div class="container">
-            <form class="form__form" id="product-form">
-                <h1 class="text-center">Register product</h1>
+            <form class="form__form" role="form" action="/api/product" method="POST">
+                <h2 class="text-center">Registrar un producto</h2>
                 <div class="form-group">
-                    <input type="text" class="form-control m-1" placeholder="Enter name" name="name"
-                        id="product-input-name" required />
+                    <input type="text" class="form-control m-1" placeholder="Name" name="name" id="product-input-name"
+                        required />
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control m-1" placeholder="Enter description" name="description"
+                    <input type="text" class="form-control m-1" placeholder="Description" name="description"
                         id="product-input-description" required />
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control m-1" placeholder="Enter price" name="price"
+                    <input type="text" class="form-control m-1" placeholder="Price" name="price"
                         id="product-input-price" required />
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control m-1" placeholder="Enter thumbnail" name="thumbnail"
+                    <input type="text" class="form-control m-1" placeholder="Thumbnail" name="thumbnail"
                         id="product-input-thumbnail" required />
                 </div>
-                <button type="submit" class="btn btn-success m-3">Add</button>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success m-3">Add</button>
+                </div>
             </form>
         </div>
 
@@ -98,8 +100,7 @@
                                 var priceReplace = price.replace("Price amount: $", "")
                                 var priceNumber = parseInt(priceReplace)
                                 var product_id = $(e.target).attr("data-id")
-                                console.log("🦇 ~ file: dashboard.html:101 ~ $ ~ product_id", product_id)
-                                
+
 
 
                                 fetch(`api/cart/${product_id}`, {
@@ -132,7 +133,7 @@
                     </script>
                 </div>
             </div>
-
+        </div>
 
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
@@ -143,7 +144,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="./javascripts/socket.io.js"></script>
-<script src="./javascripts/dashboard.js"></script>
+<script src="./javascripts/userCart.js"></script>
 
 
 </html>
