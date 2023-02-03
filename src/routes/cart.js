@@ -1,7 +1,7 @@
 //rutas de carrito vinculado a cada usuario
 
 const router = require("express").Router();
-const logger = require("../logs/logger");
+const logger = require("../utils/logger");
 const Cart = require("../models/cart.model");
 const Product = require("../models/product.model");
 

@@ -1,6 +1,6 @@
 const router = require("express").Router();
 
-const logger = require("../logs/logger");
+const logger = require("../utils/logger");
 
 router.get("/info", (req, res) => {
   logger.info("Se accedió a la ruta /info con metodo GET");

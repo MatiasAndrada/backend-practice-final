@@ -1,7 +1,7 @@
 const  mongoose = require( 'mongoose');
+const moment = require("moment")
 const  config  = require( '../../config.js');
 
-//await mongoose.connect(config.dbConfig.mongodb.cnxStr, config.dbConfig.mongodb.options)
 class ContainerMongo {
 
     constructor(nombreColeccion, esquema) {
@@ -11,18 +11,7 @@ class ContainerMongo {
     async getAll(){
         await mongoose.connect(config.dbConfig.mongodb.cnxStr, config.dbConfig.mongodb.options)
         try{
-            const respuesta = await this.coleccion.find().sort({id: 1})
-            mongoose.connection.close()
-            return respuesta
-        }catch(err){
-            return []     
-        }
-    }
-
-    async getById(x){
-        await mongoose.connect(config.dbConfig.mongodb.cnxStr, config.dbConfig.mongodb.options)
-        try{
-            const respuesta = await this.coleccion.find({id:{$eq: `${x}`}})
+            const respuesta = await this.coleccion.find({})
             mongoose.connection.close()
             return respuesta
         }catch(err){
@@ -30,24 +19,19 @@ class ContainerMongo {
         }
     }
 
-    async saveAll(newArray){   
+    async getByCode(code){
+        await mongoose.connect(config.dbConfig.mongodb.cnxStr, config.dbConfig.mongodb.options)
         try{
-            let preSave = await this.getAll()
-            
-            if(preSave.length === 0){
-                await this.coleccion.insertMany(newArray)
-            }else{
-                await this.coleccion.deleteMany({})
-                await mongoose.connect(config.dbConfig.mongodb.cnxStr, config.dbConfig.mongodb.options)
-                await this.coleccion.insertMany(newArray)
-            }
+            const respuesta = await this.coleccion.find({code:{$eq: `${code}`}})
             mongoose.connection.close()
-        }catch(error){
-            throw new Error(`Error leer el ID de archivo: ${error}`)
+            return respuesta
+        }catch(err){
+            throw new Error(`Error leer el ID de archivo: ${err}`)
         }
     }
-
-    async save(newObj){
+    
+        async save(newObj){
+        await mongoose.connect(config.dbConfig.mongodb.cnxStr, config.dbConfig.mongodb.options)
         try{
             let preSave = await this.getAll()
             let newId
@@ -56,21 +40,42 @@ class ContainerMongo {
             }else{
                 newId = parseInt(preSave[preSave.length-1].id) + 1
             }
-            await this.coleccion.insertMany({id:newId, ...newObj})
+            let created_at = moment().format("DD/MM/YYYY HH:mm:ss")
+            await this.coleccion.insertMany({id:newId, created_at:created_at, ...newObj})
+            mongoose.connection.close()
+        }catch(error){
+            throw new Error(`Error leer el ID de archivo: ${error}`)
+        }
+    }
+    
+    async saveAll(newArray){
+        try{
+            let preSave = await this.getAll()
+            let newId
+            if(preSave.length == 0){
+                newId = 1
+            }else{
+                newId = parseInt(preSave[preSave.length-1].id) + 1
+            }
+            for(let i=0; i<newArray.length; i++){
+                let timestamp = moment().format("DD/MM/YYYY HH:mm:ss")
+                await this.coleccion.insertMany({id:newId, timestamp:timestamp, ...newArray[i]})
+                newId++
+            }
             mongoose.connection.close()   
         }catch(error){
             throw new Error(`Error leer el ID de archivo: ${error}`)
         }
     }
 
-    async putById(x,newObj){
+    async putById(id,newObj){
         await mongoose.connect(config.dbConfig.mongodb.cnxStr, config.dbConfig.mongodb.options)
         try{
-            await this.coleccion.replaceOne({id:{$eq: `${x}`}} ,newObj)
+            await this.coleccion.updateOne({id:{$eq: `${id}`}}, {$set: newObj})
             mongoose.connection.close()
         }catch(error){
             throw new Error(`Error leer el ID de archivo: ${error}`)
-        } 
+        }
     }
 
     async deleteById(x){

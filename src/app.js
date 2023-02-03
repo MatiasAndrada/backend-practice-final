@@ -4,10 +4,10 @@ require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const loggerDEV = require("morgan");
-const logger = require("./logs/logger");
+const logger = require("./utils/logger");
 
 const app = express();
-//configuracion de puerto
+//!configuracion de puerto
 app.set("port", process.env.APP_PORT);
 const config = require("./config");
 const mongoose = require("mongoose");
@@ -15,7 +15,7 @@ mongoose.set("strictQuery", false);
 mongoose.connect(config.dbConfig.mongodb.cnxStr);
 const socket = require("socket.io");
 
-// view engine setup
+//!view engine setup
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
 app.use(loggerDEV("dev"));
@@ -23,14 +23,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(express.static("public"));
+//avatar images
 app.use("/public", express.static(`${__dirname}/storage/images/avatars`));
 
 //!PASSPORT
-
-// Configuring Passport
 const passport = require("passport");
 const expressSession = require("express-session");
-//Initialize Passport
 const initPassport = require("./passport/init");
 initPassport(passport);
 //Use the session middleware
@@ -48,13 +46,12 @@ app.use(passport.initialize());
 app.use(passport.session());
 const flash = require("connect-flash");
 app.use(flash());
-
-//lister
+//!listen
 const server = app.listen(app.get("port"), () => {
   logger.info(`Servidor escuchando en el puerto ${app.get("port")}`);
 });
 
-//!SOCKET
+//!SOCKET.IO
 const io = socket(server);
 io.on("connection", (socket) => {
   socket.on("change-list", () => {
@@ -65,45 +62,25 @@ io.on("connection", (socket) => {
   });
 });
 
-//!MANEJADOR DE ERRORES
-app.use((err, req, res, next) => {
-  logger.error(`${err.status || 500} - ${err.message} - ${req.originalUrl} - ${
-    req.method
-  } - ${req.ip}`);
-  res.status(err.status || 500);
-  res.send("Error interno del servidor");
-});
+/* //!ERRORHANDLER MIDDLEWARE
+const errorHandler = require("./middlewares/errorHandler");
+app.use(errorHandler); */
+//!AUTH MIDDLEWARE
+app.use("/", require("./routes/auth")(passport));
+/* const auth = require("./middlewares/auth");
+app.use(auth); */
 
 //!ROUTES
 app.use("/", require("./routes/primary"));
-app.use("/", require("./routes/auth")(passport));
 app.use("/api", require("./routes/info"));
 app.use("/api/product", require("./routes/product"));
-app.use("/api/cart", require("./routes/cart"));
+/* app.use("/api/cart", require("./routes/cart")); */
 
-// catch 404 and forward to error handler
-app.use("*", (req, res) => {
-  res.status(404).send("Recurso no encontrado");
+//!catch 404
+app.use((req, res, next) => {
+  res.status(404).render("404");
 });
 
-mongoose.connection.on("connected", () => {
-  logger.info(`Conexion a la base de datos exitosa`);
-});
 
-//por si hay algun error en la conexion a la base de datos
-mongoose.connection.on("error", (error) => {
-  logger.error(`Error en la conexion a la base de datos: ${error}`);
-});
-
-// error handler
-app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render("error");
-});
 
 module.exports = app;

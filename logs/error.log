@@ -1,0 +1,19 @@
+2023-02-02T22:11:18.578Z error: 404
+2023-02-02T22:15:54.817Z error: 404
+2023-02-03T00:05:22.939Z error: ProductDto is not a constructor
+2023-02-03T00:21:32.751Z error: ProductDto is not a constructor
+2023-02-03T18:27:09.045Z error: Error leer el ID de archivo: MongoBulkWriteError: Attempted to check out a connection from closed connection pool
+2023-02-03T18:27:59.430Z error: Error leer el ID de archivo: MongoBulkWriteError: Attempted to check out a connection from closed connection pool
+2023-02-03T18:28:48.642Z error: Error leer el ID de archivo: MongoBulkWriteError: Attempted to check out a connection from closed connection pool
+2023-02-03T18:29:37.576Z error: Error leer el ID de archivo: ReferenceError: moment is not defined
+2023-02-03T18:29:46.446Z error: Error leer el ID de archivo: MongoBulkWriteError: Attempted to check out a connection from closed connection pool
+2023-02-03T18:35:34.548Z error: Error leer el ID de archivo: MongoBulkWriteError: Attempted to check out a connection from closed connection pool
+2023-02-03T18:36:41.557Z error: Error leer el ID de archivo: MongoBulkWriteError: Attempted to check out a connection from closed connection pool
+2023-02-03T18:56:02.897Z error: Error leer el ID de archivo: MongoBulkWriteError: Attempted to check out a connection from closed connection pool
+2023-02-03T18:57:22.961Z error: Error leer el ID de archivo: MongoBulkWriteError: Attempted to check out a connection from closed connection pool
+2023-02-03T18:57:38.145Z error: Error leer el ID de archivo: MongoBulkWriteError: Attempted to check out a connection from closed connection pool
+2023-02-03T18:58:26.390Z error: Error leer el ID de archivo: MongoBulkWriteError: Attempted to check out a connection from closed connection pool
+2023-02-03T18:58:56.334Z error: Error leer el ID de archivo: MongoBulkWriteError: Attempted to check out a connection from closed connection pool
+2023-02-03T18:59:26.094Z error: Error leer el ID de archivo: MongoBulkWriteError: Attempted to check out a connection from closed connection pool
+2023-02-03T19:01:20.229Z error: Error leer el ID de archivo: MongoBulkWriteError: Attempted to check out a connection from closed connection pool
+2023-02-03T19:03:10.724Z error: Error leer el ID de archivo: MongoBulkWriteError: Attempted to check out a connection from closed connection pool

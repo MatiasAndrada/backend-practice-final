@@ -27,12 +27,4 @@ module.exports = mongoose.model("User", userSchema);
 
 
 
-/*
-userSchema.methods.setAvatarUrl = function setAvatarUrl(filename) {
-  const { port, host } = appconfig;
-  this.avatarUrl = `http://${host}:${port}/public/${filename}`
-
-}*/
-
-
 
