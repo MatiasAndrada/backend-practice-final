@@ -18,10 +18,10 @@ class ContainerMongo {
         }
     }
 
-    async getById(x) {
+    async getById(_id) {
         
         try {
-            const respuesta = await this.coleccion.findOne({ id: { $eq: `${x}` } })
+            const respuesta = await this.coleccion.find({ _id: { $eq: `${_id}` } })
             
             return respuesta
         } catch (error) {
@@ -30,72 +30,34 @@ class ContainerMongo {
     }
     async save(newObj) {
         try {
-            let preSave = await this.getAll()
-            let newId
-            if (preSave.length == 0) {
-                newId = 1
-            } else {
-                newId = parseInt(preSave[preSave.length - 1].id) + 1
-            }
-            let timestamp = moment().format("DD/MM/YYYY HH:mm:ss")
-            
-            await this.coleccion.insertMany({ id: newId, timestamp: timestamp, ...newObj })
-           
-            return newId
+            const respuesta = await this.coleccion.create(newObj)
+            return respuesta
         } catch (error) {
-            throw new Error(`Error leer el ID de archivo: ${error}`)
+            throw new Error(`Error al guardar el archivo: ${error}`)
         }
     }
-
-    async saveAll(newArray) {
-        
+    async updateById(_id, newObj) {
         try {
-            let preSave = await this.getAll()
-            let newId
-            if (preSave.length == 0) {
-                newId = 1
-            } else {
-                newId = parseInt(preSave[preSave.length - 1].id) + 1
-            }
-            for (let i = 0; i < newArray.length; i++) {
-                let timestamp = moment().format("DD/MM/YYYY HH:mm:ss")
-                await this.coleccion.insertMany({ id: newId, timestamp: timestamp, ...newArray[i] })
-                newId++
-            }
-           
+            const respuesta = await this.coleccion.updateOne({ _id: { $eq: `${_id}` } }, newObj)
+            return respuesta
         } catch (error) {
-            throw new Error(`Error leer el ID de archivo: ${error}`)
+            throw new Error(`Error al actualizar el archivo: ${error}`)
         }
     }
-
-    async putById(id, newObj) {
-        
+    async deleteById(_id) {
         try {
-            await this.coleccion.updateOne({ id: { $eq: `${id}` } }, { $set: newObj })
-           
+            const respuesta = await this.coleccion.deleteOne({ _id: { $eq: `${_id}` } })
+            return respuesta
         } catch (error) {
-            throw new Error(`Error leer el ID de archivo: ${error}`)
+            throw new Error(`Error al borrar el archivo: ${error}`)
         }
     }
-
-    async deleteById(id) {
-        
-        try {
-            await this.coleccion.deleteOne({ id: { $eq: `${id}` } })
-           
-        } catch (error) {
-            throw new Error(`Error leer el ID de archivo: ${error}`)
-        }
-    }
-    
-
     async deleteAll() {
-        
         try {
-            await this.coleccion.deleteMany({})
-           
+            const respuesta = await this.coleccion.deleteMany({})
+            return respuesta
         } catch (error) {
-            throw new Error(`Error leer el ID de archivo: ${error}`)
+            throw new Error(`Error al borrar el archivo: ${error}`)
         }
     }
 }
