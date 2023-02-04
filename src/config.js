@@ -5,7 +5,7 @@
     },
     dbConfig:{
     fileSystem: {
-        path: './DB/'
+        path: './storage/fileSystem'
     },
     mongodb: {
         cnxStr: "mongodb+srv://Pichulitoo7:Pichu2909@cluster0.rfxozjp.mongodb.net/backendAppTest",

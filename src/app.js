@@ -13,6 +13,7 @@ const config = require("./config");
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 mongoose.connect(config.dbConfig.mongodb.cnxStr);
+
 const socket = require("socket.io");
 
 //!view engine setup
@@ -50,6 +51,15 @@ app.use(flash());
 const server = app.listen(app.get("port"), () => {
   logger.info(`Servidor escuchando en el puerto ${app.get("port")}`);
 });
+const db = 
+mongoose.connection;  
+db.on("error", (err) => {
+  logger.error(err);
+});
+db.once("open", () => {
+  logger.info("Conectado a la base de datos");
+});
+
 
 //!SOCKET.IO
 const io = socket(server);
@@ -66,21 +76,15 @@ io.on("connection", (socket) => {
 const errorHandler = require("./middlewares/errorHandler");
 app.use(errorHandler); */
 //!AUTH MIDDLEWARE
-app.use("/", require("./routes/auth")(passport));
 /* const auth = require("./middlewares/auth");
 app.use(auth); */
 
+app.use("/", require("./routes/auth")(passport));
 //!ROUTES
 app.use("/", require("./routes/primary"));
 app.use("/api", require("./routes/info"));
 app.use("/api/product", require("./routes/product"));
-/* app.use("/api/cart", require("./routes/cart")); */
-
-//!catch 404
-app.use((req, res, next) => {
-  res.status(404).render("404");
-});
-
+app.use("/api/cart", require("./routes/cart")); 
 
 
 module.exports = app;

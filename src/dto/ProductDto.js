@@ -1,29 +1,31 @@
-//Crear un dto de productos con static
 
-const { json } = require("express");
-
+const Joi = require('joi');
 
 class ProductoDto {
-id;
-name;
-description;
-price;
+    constructor(product) {
+        this.id = product.id;
+        this.timestamp = product.timestamp;
+        this.name = product.name;
+        this.description = product.description;
+        this.price = product.price;
+        this.thumbnail = product.thumbnail;
+    }
 
-constructor({id, name, description, price}) {
-this.id = id;
-this.name = name;
-this.description = description;
-this.price = price;
-}
-static fromJson(json){
-    const datos = JSON.parse(json)
-    return new ProductoDto(datos)
+    static validate(product) {
+        const schema = Joi.object({
+            id: Joi.number().integer().min(1).required(),
+            timestamp: Joi.date().required(),
+            name: Joi.string().min(3).max(50).required(),
+            description: Joi.string().min(3).max(50).required(),
+            price: Joi.number().integer().min(1).required(),
+            thumbnail: Joi.string().min(3).max(50).required(),
+        });
+        return schema.validate(product);
+    }
 }
 
-toJson(){
-    return JSON.stringify(this)
 
-}
-}
+
+
 
 module.exports = ProductoDto;

@@ -16,12 +16,12 @@ router.post("/all", productController.createProducts);
 //Update product
 router.put("/:id", productController.updateProduct);
 
-//Delete product
-router.delete("/:id", productController.deleteProduct);
 
 //Delete all products
 router.delete("/", productController.deleteProducts);
 
+//Delete product
+router.delete("/:id", productController.deleteProduct);
 
 
 

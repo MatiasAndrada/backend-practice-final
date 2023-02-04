@@ -1,8 +1,11 @@
 const { ProductRepo } = require("../repositories/ProductRepo");
 const logger = require("../utils/logger");
-const moment = require("moment");
 
-exports.getProducts = (req, res, next) => {
+exports.getProducts = (req, res) => {
+    if (req.query.filter) {
+        next();
+        return;
+    }
     ProductRepo.getAll()
         .then((products) => {
             res.json(products);
@@ -44,8 +47,8 @@ exports.createProduct = (req, res) => {
     };
 
     ProductRepo.save(product)
-        .then(() => {
-            res.json({ message: "Product created successfully" });
+        .then((newId) => {
+            res.json({ message: "Product created successfully", id: newId });
         })
         .catch((err) => {
             logger.error(err);
@@ -81,6 +84,22 @@ exports.updateProduct = (req, res) => {
         });
 };
 
+exports.deleteProducts = (req, res) => {
+    if (req.query.filter) {
+        next();
+        return;
+    }
+    ProductRepo.deleteAll()
+        .then(() => {
+            res.json({ message: "Products deleted successfully" });
+        })
+        .catch((err) => {
+            logger.error(err);
+            res.status(500).json({
+                message: "Error deleting Products",
+            });
+        });
+};
 exports.deleteProduct = (req, res) => {
     ProductRepo.delete(req.params.id)
         .then(() => {
@@ -94,15 +113,3 @@ exports.deleteProduct = (req, res) => {
         });
 };
 
-exports.deleteProducts = (req, res) => {
-    ProductRepo.deleteAll()
-        .then(() => {
-            res.json({ message: "Products deleted successfully" });
-        })
-        .catch((err) => {
-            logger.error(err);
-            res.status(500).json({
-                message: "Error deleting Products",
-            });
-        });
-};
