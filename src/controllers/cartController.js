@@ -20,16 +20,8 @@ exports.getCart = (req, res) =>
 }
 
 exports.addToCart= (req, res) => {
-
-    console.log(0)
     const idUser = req.user._id;
-    console.log("🦇 ~ file: cartController.js:24 ~ idUser", idUser)
-   
-    const idProduct = req.params.id
-    console.log("🦇 ~ file: cartController.js:26 ~ idProduct", idProduct)
-
-    const quantity = req.body.quantity;
-    console.log("🦇 ~ file: cartController.js:28 ~ quantity", quantity)
+    const {idProduct, quantity} = req.body;
     CartRepo.addToCart(idUser, idProduct, quantity)
         .then((cart) => {
             res.json(cart);

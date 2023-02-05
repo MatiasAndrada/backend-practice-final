@@ -64,3 +64,8 @@
 2023-02-04T22:44:55.787Z error: Error leer el ID de archivo: CastError: Cast to Number failed for value "[object Undefined]" (type string) at path "id" for model "products"
 2023-02-04T22:47:54.892Z error: Error leer el ID de archivo: CastError: Cast to Number failed for value "63de7f5f948c6ccedff4c218" (type string) at path "id" for model "products"
 2023-02-04T22:47:56.311Z error: Error leer el ID de archivo: CastError: Cast to Number failed for value "63de7f5f948c6ccedff4c218" (type string) at path "id" for model "products"
+2023-02-05T18:36:23.892Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'item')
+2023-02-05T18:59:06.289Z error: Error leer el ID de archivo: Error: El producto no existe
+2023-02-05T19:09:44.718Z error: Error leer el ID de archivo: TypeError: collecion.findOne is not a function
+2023-02-05T19:14:12.027Z error: Error leer el ID de archivo: TypeError: ProductDao.getById is not a function
+2023-02-05T19:16:17.359Z error: Error leer el ID de archivo: TypeError: ProductDao.getById is not a function
