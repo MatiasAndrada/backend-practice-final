@@ -13,6 +13,9 @@ const isAuthenticated = function (req, res, next) {
 //Get cart
 router.get("/", isAuthenticated, cartController.getCart);
 
+//Add to cart
+router.post("/:id", isAuthenticated, cartController.addToCart);
+
 
 
 module.exports = router;

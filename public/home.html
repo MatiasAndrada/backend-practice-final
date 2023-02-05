@@ -92,24 +92,24 @@
         <script>
 
             $(".add-item").click((e) => {
-                var quantity = e.target.parentElement.querySelector(".form-select").value;
-                var price = e.target.parentElement.parentElement.parentElement.parentElement.querySelector("#price").textContent;
-                var priceReplace = price.replace("$", "");
-                var priceNumber = parseInt(priceReplace);
-                var total = priceNumber * quantity;
-
-                var product = {
-                    id: e.target.dataset.id,
-                    quantity: quantity,
-                    priceAmount: total
-                }
-                fetch(`/api/cart/${product.id}`, {
+                //cantidad de item
+                let quantity = $(".form-select").val();
+                console.log("🦇 ~ file: home.html:97 ~ $ ~ quantity", quantity)
+                fetch(`/api/product/${e.target.dataset.id}`), {
                     method: "POST",
                     headers: {
                         'Content-type': 'application/json'
                     },
-                    body: JSON.stringify(product)
-                })
+                    body: JSON.stringify({
+                        quantity: quantity
+                    })
+                }
+                    .then((res) => {
+                        if (res.status === 200) {
+                            socket.emit("change-list");
+                        }
+                    });
+                
             });
 
             $(".delete-item").click((e) => {

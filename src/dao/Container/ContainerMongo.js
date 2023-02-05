@@ -8,10 +8,10 @@ class ContainerMongo {
     }
 
     async getAll() {
-        
+
         try {
             const respuesta = await this.coleccion.find({})
-           
+
             return respuesta
         } catch (err) {
             throw new Error(`Error leer el ID de archivo: ${err}`)
@@ -19,10 +19,10 @@ class ContainerMongo {
     }
 
     async getById(x) {
-        
+
         try {
             const respuesta = await this.coleccion.findOne({ id: { $eq: `${x}` } })
-            
+
             return respuesta
         } catch (error) {
             throw new Error(`Error leer el ID de archivo: ${error}`)
@@ -38,9 +38,9 @@ class ContainerMongo {
                 newId = parseInt(preSave[preSave.length - 1].id) + 1
             }
             let timestamp = moment().format("DD/MM/YYYY HH:mm:ss")
-            
+
             await this.coleccion.insertMany({ id: newId, timestamp: timestamp, ...newObj })
-           
+
             return newId
         } catch (error) {
             throw new Error(`Error leer el ID de archivo: ${error}`)
@@ -48,7 +48,7 @@ class ContainerMongo {
     }
 
     async saveAll(newArray) {
-        
+
         try {
             let preSave = await this.getAll()
             let newId
@@ -62,38 +62,39 @@ class ContainerMongo {
                 await this.coleccion.insertMany({ id: newId, timestamp: timestamp, ...newArray[i] })
                 newId++
             }
-           
+
         } catch (error) {
             throw new Error(`Error leer el ID de archivo: ${error}`)
         }
     }
 
     async putById(id, newObj) {
-        
+
         try {
             await this.coleccion.updateOne({ id: { $eq: `${id}` } }, { $set: newObj })
-           
+
         } catch (error) {
             throw new Error(`Error leer el ID de archivo: ${error}`)
         }
     }
 
     async deleteById(id) {
-        
+
         try {
-            await this.coleccion.deleteOne({ id: { $eq: `${id}` } })
-           
+            let rta = await this.coleccion.deleteOne({ id: { $eq: `${id}` } })
+
+            console.log("🦇  ~ rta", rta)
         } catch (error) {
             throw new Error(`Error leer el ID de archivo: ${error}`)
         }
     }
-    
+
 
     async deleteAll() {
-        
+
         try {
             await this.coleccion.deleteMany({})
-           
+
         } catch (error) {
             throw new Error(`Error leer el ID de archivo: ${error}`)
         }

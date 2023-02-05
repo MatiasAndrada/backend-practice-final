@@ -1,4 +1,4 @@
-//DTO DE CARRITO
+const Joi = require("joi")
 class CartDto {
     constructor(cart) {
         this.total = cart.total
