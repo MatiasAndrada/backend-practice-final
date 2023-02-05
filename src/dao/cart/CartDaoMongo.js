@@ -1,5 +1,4 @@
 const Schema = require("mongoose").Schema;
-
 const ContenedorMongo = require("../Container/ContainerMongo");
 
 var CartSchema = new Schema({
