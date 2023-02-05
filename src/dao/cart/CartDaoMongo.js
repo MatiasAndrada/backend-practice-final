@@ -2,6 +2,7 @@ const Schema = require("mongoose").Schema;
 const ProductDao = require("../product/ProductDaoMongo")
 const ContenedorMongo = require("../Container/ContainerMongo");
 
+
 var CartSchema = new Schema({
     owner: { type: Schema.Types.ObjectId, ref: "users" },
     total: { type: Number, default: 0 },
@@ -68,7 +69,7 @@ class CarritosDaoMongo extends ContenedorMongo {
                 respuesta = await this.coleccion.insertOne({ owner: idUser });
             }
             //? buscar el producto en collecion de productos
-            const producto = await ProductDao.getById(idProduct);
+            const producto = 
             console.log("🦇  producto", producto)
 
             if (!producto) {

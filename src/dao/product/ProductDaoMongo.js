@@ -1,4 +1,6 @@
 const ContainerMongo = require('../Container/ContainerMongo')
+const Schema = require('mongoose').Schema
+
 
 class ProductosDaoMongo extends ContainerMongo {
 
