@@ -76,7 +76,7 @@
                                         <option value="4">4</option>
                                         <option value="5">5</option>
                                     </select>
-                                    <button type="button" class="btn btn-outline-success add-item"
+                                    <button type="button" class="btn btn-outline-success add-cart"
                                     data-id="{{this._id}}">Add to cart</button>
                                 </div>
                                 <div class="m-3">
@@ -91,27 +91,21 @@
         </ul>
         <script>
 
-            $(".add-item").click((e) => {
-                //cantidad de item
+            $(".add-cart").click((e) => {
                 let quantity = $(".form-select").val();
-                console.log("🦇 ~ file: home.html:97 ~ $ ~ quantity", quantity)
-                fetch(`/api/product/${e.target.dataset.id}`), {
-                    method: "POST",
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        quantity: quantity
-                    })
-                }
+                let idProduct = e.target.dataset.id;
+                axios.post("/api/cart", {
+                    idProduct,
+                    quantity
+                })
                     .then((res) => {
                         if (res.status === 200) {
-                            socket.emit("change-list");
+                            console.log(
+                                "Producto agregado al carrito"
+                            )
                         }
                     });
-                
-            });
-
+            })
             $(".delete-item").click((e) => {
                 fetch(`/api/product/${e.target.dataset.id}`), {
                     method: "DELETE",
@@ -150,10 +144,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.7/handlebars.min.js"
         integrity="sha512-RNLkV3d+aLtfcpEyFG8jRbnWHxUqVZozacROI4J2F1sTaDqo1dPQYs01OMi1t1w9Y2FdbSCDSQ2ZVdAC8bzgAg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="./javascripts/socket.io.js"></script>
-    <script src="./javascripts/home.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <script src="/socket.io/socket.io.js"></script>
+        <script src="./javascripts/socket.io.js"></script>
+        <script src="./javascripts/home.js"></script>
 </body>
 
 </html>
