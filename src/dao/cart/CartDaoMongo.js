@@ -18,10 +18,16 @@ var CartSchema = new Schema({
 
 //virtual items length
 CartSchema.virtual("itemsCount").get(function () {
-    return this.items.length;
+    //buscar la quantity de cada item
+    let total = 0;
+    this.items.forEach((item) => {
+        total += item.quantity;
+    }
+    );
+    return total;
 });
 
-//CartSchema.set("toJSON", { virtuals: true });
+CartSchema.set("toJSON", { virtuals: true });
 
 class CarritosDaoMongo extends ContenedorMongo {
     constructor() {
@@ -64,11 +70,7 @@ class CarritosDaoMongo extends ContenedorMongo {
             )
             if (!respuesta) {
                 //? si no existe, crearlo
-                respuesta = await this.coleccion.insertOne({
-                    owner: idUser,
-                    total: 0,
-                    items: [],
-                });
+                respuesta = await this.coleccion.create({ owner: idUser });
             }
 
             //? verificar si el producto ya existe en el carrito
@@ -105,6 +107,42 @@ class CarritosDaoMongo extends ContenedorMongo {
             throw new Error(`Error leer el ID de archivo: ${error}`);
         }
     }
+
+    async deleteItem(idUser, idProduct, priceAmount) {
+        try {
+            //? buscar el carrito
+            const respuesta = await this.coleccion.findOne({ owner: idUser }).populate(
+                "items.item"
+            )
+            if (respuesta) {
+                //? si existe, actualizar el total y eliminar el producto
+                respuesta.total -= priceAmount;
+                await this.coleccion.updateOne(
+                    { owner: idUser },
+                    { $pull: { items: { item: idProduct } }, $set: { total: respuesta.total } }
+                );
+            }
+        } catch (error) {
+            throw new Error(`Error leer el ID de archivo: ${error}`);
+        }
+    }
+
+    async deleteCart(idUser) {
+        try {
+            //? buscar el carrito
+            const respuesta = await this.coleccion.findOne({ owner: idUser }).populate(
+                "items.item"
+            )
+            if (respuesta) {
+                //? si existe, eliminarlo
+                await this.coleccion.deleteOne({ owner: idUser });
+            }
+        } catch (error) {
+            throw new Error(`Error leer el ID de archivo: ${error}`);
+        }
+    }
+    
+
 }
     
 module.exports = CarritosDaoMongo;

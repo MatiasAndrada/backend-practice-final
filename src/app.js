@@ -8,8 +8,8 @@ const logger = require("./utils/logger");
 
 const app = express();
 //!configuracion de puerto
-app.set("port", process.env.APP_PORT);
 const config = require("./config");
+app.set("port", config.appConfig.port);
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
 mongoose.connect(config.dbConfig.mongodb.cnxStr);

@@ -5,7 +5,6 @@ class ProductoDto {
     constructor(product) {
         this.
         _id = product._id;
-        this.timestamp = product.timestamp;
         this.name = product.name;
         this.description = product.description;
         this.price = product.price;
@@ -15,7 +14,6 @@ class ProductoDto {
 
     static validate(product) {
         const schema = Joi.object({
-            timestamp: Joi.date().required(),
             name: Joi.string().min(3).max(50).required(),
             description: Joi.string().min(3).max(50).required(),
             price: Joi.number().integer().min(1).required(),

@@ -1,10 +1,10 @@
-/* const { varSwitch } = require("./switchDb.js"); */
+const config = require('../config');
 const logger = require('../utils/logger');
 
 let ProductDao;
 let CartDao;
 
-let varSwitch = "mongo"
+let varSwitch = config.appConfig.db
 
 
 switch (varSwitch) {

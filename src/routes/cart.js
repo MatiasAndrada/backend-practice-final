@@ -1,20 +1,23 @@
 
 
 const router = require("express").Router();
+const isAuthenticated = require("../middleware/auth");
 
 const cartController = require("../controllers/cartController");
 
-//Auth
-const isAuthenticated = function (req, res, next) {
-    if (req.isAuthenticated()) return next();
-    res.redirect("/");
-};
 
 //Get cart
-router.get("/", isAuthenticated, cartController.getCart);
+router.get("/", isAuthenticated, cartController.getAll);
 
 //Add to cart
 router.post("/", isAuthenticated, cartController.addToCart);
+
+//Delete from cart
+router.delete("/:id", isAuthenticated, cartController.deleteById);
+
+//Delete all cart
+router.delete("/", isAuthenticated, cartController.deleteAll);
+
 
 
 

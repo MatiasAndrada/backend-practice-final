@@ -64,8 +64,6 @@
                         <p class="m-3">Description: {{this.description}}</p>
                         <p class="m-3">Price: </p> 
                         <h4 class="m-3" id="price">${{this.price}}</h4>
-                        <h5 class="text-end">Creacion:</h5>
-                        <h5 class="text-end">{{this.timestamp}}</h5>
                         <div class="container d-flex justify-content-between">
                                 <div class="m-3">
                                     <select class="form-select" aria-label="Default select example">
@@ -111,26 +109,19 @@
                     });
             })
             $(".delete-item").click((e) => {
-                fetch(`/api/product/${e.target.dataset.id}`), {
-                    method: "DELETE",
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                }
+                //paasar por param ek id
+                let idProduct = e.target.dataset.id;
+                axios.delete(`/api/product/${idProduct}`)      
                     .then((res) => {
                         if (res.status === 200) {
                             socket.emit("change-list");
                         }
                     });
-            });
+        })
+
 
             $(".delete-all").click(() => {
-                fetch("/api/product", {
-                    method: "DELETE",
-                    headers: {
-                        'Content-type': 'application/json'
-                    },
-                })
+                axios.delete("api/product")
                     .then((res) => {
                         if (res.status === 200) {
                             socket.emit("change-list");

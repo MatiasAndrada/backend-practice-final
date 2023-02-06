@@ -124,3 +124,29 @@
 2023-02-05T20:46:17.377Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'find')
 2023-02-05T20:47:25.877Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'findOne')
 2023-02-05T20:49:00.021Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'find')
+2023-02-06T14:04:58.558Z error: CartDto is not a constructor
+2023-02-06T14:09:06.292Z error: CartDto is not a constructor
+2023-02-06T14:11:03.695Z error: CartDto is not a constructor
+2023-02-06T14:11:08.413Z error: CartDto is not a constructor
+2023-02-06T14:13:30.010Z error: cart is not defined
+2023-02-06T14:14:23.680Z error: cart is not defined
+2023-02-06T14:17:33.928Z error: cart is not defined
+2023-02-06T14:18:42.124Z error: cart is not defined
+2023-02-06T14:20:07.080Z error: cart is not defined
+2023-02-06T15:50:32.639Z warn: Invalid Password
+2023-02-06T15:50:32.794Z warn: Invalid Password
+2023-02-06T15:50:39.462Z warn: Invalid Password
+2023-02-06T15:50:45.005Z warn: Invalid Password
+2023-02-06T15:51:53.851Z warn: Invalid Password
+2023-02-06T15:55:37.211Z error: Error leer el ID de archivo: TypeError: this.coleccion.insertOne is not a function
+2023-02-06T15:55:38.108Z error: Error leer el ID de archivo: TypeError: this.coleccion.insertOne is not a function
+2023-02-06T15:55:40.467Z error: Error leer el ID de archivo: TypeError: this.coleccion.insertOne is not a function
+2023-02-06T15:55:54.518Z error: Error leer el ID de archivo: TypeError: this.coleccion.insertOne is not a function
+2023-02-06T15:55:56.508Z error: Error leer el ID de archivo: TypeError: this.coleccion.insertOne is not a function
+2023-02-06T15:55:59.509Z error: Error leer el ID de archivo: TypeError: this.coleccion.insertOne is not a function
+2023-02-06T15:56:01.033Z error: Error leer el ID de archivo: TypeError: this.coleccion.insertOne is not a function
+2023-02-06T15:56:09.563Z error: Error leer el ID de archivo: TypeError: this.coleccion.insertOne is not a function
+2023-02-06T17:21:46.009Z error: connection 1 to 52.5.185.242:27017 timed out
+2023-02-06T18:34:15.748Z error: Error al guardar: Error: ENOENT: no such file or directory, open 'C:\Codes\npx-express-model\storage\fileSystem\productos.json'
+2023-02-06T18:34:58.628Z error: Error al guardar: Error: ENOENT: no such file or directory, open 'C:\Codes\npx-express-model\storage\fileSystem\productos.json'
+2023-02-06T18:37:40.348Z error: Error al guardar: Error: ENOENT: no such file or directory, open 'C:\Codes\npx-express-model\storage\filesystem\productos.json'

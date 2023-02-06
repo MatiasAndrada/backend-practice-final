@@ -7,22 +7,28 @@ class CartRepo {
         this.CartDao = CartDao
     }
 
-    async getCart(idUser) {
+    async getAll(idUser) {
         const cart = await this.CartDao.getCart(idUser)
-        console.log("🦇  cart", cart)
         if (!cart) {
             return null
         }
         const dto = new CartDto(cart)
-        console.log("🦇  dto", dto)
         return dto
         
     }
 
     async addToCart(idUser, idProduct, quantity, price) {
         await this.CartDao.addItem(idUser, idProduct, quantity, price)
-
     }
+
+    async deleteById(idUser, idProduct, priceAmount) {
+        await this.CartDao.deleteItem(idUser, idProduct, priceAmount)
+    }
+
+    async deleteAll(idUser) {
+        await this.CartDao.deleteCart(idUser)
+    }
+
 }
 
 

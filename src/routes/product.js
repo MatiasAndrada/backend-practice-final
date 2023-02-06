@@ -1,27 +1,30 @@
 const router = require("express").Router();
+const isAuthenticated = require("../middleware/auth");
 const productController = require("../controllers/productController");
 
+
+
 //Get all products
-router.get("/", productController.getProducts);
+router.get("/", isAuthenticated, productController.getProducts);
 
 //Get product by id
-router.get("/:id", productController.getProductById);
+router.get("/:id", isAuthenticated,  productController.getProductById);
 
 //Create new product
 router.post("/", productController.createProduct);
 
 //Create new products
-router.post("/all", productController.createProducts);
+router.post("/all" , productController.createProducts);
 
 //Update product
-router.put("/:id", productController.updateProduct);
+router.put("/:id", isAuthenticated,  productController.updateProduct);
 
 
 //Delete all products
-router.delete("/", productController.deleteProducts);
+router.delete("/", isAuthenticated,  productController.deleteProducts);
 
 //Delete product
-router.delete("/:id", productController.deleteProduct);
+router.delete("/:id",  isAuthenticated, productController.deleteProduct);
 
 
 

@@ -1,9 +1,8 @@
+
 const router = require("express").Router();
-//Auth
-const isAuthenticated = function (req, res, next) {
-  if (req.isAuthenticated()) return next();
-  res.redirect("/");
-};
+const isAuthenticated = require("../middleware/auth");
+
+
 /* GET home Page */
 router.get("/home", isAuthenticated, function (req, res) {
   res.sendFile("home.html", { root: "public", user: req.user });
