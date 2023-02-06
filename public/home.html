@@ -92,11 +92,15 @@
         <script>
 
             $(".add-cart").click((e) => {
-                let quantity = $(".form-select").val();
+                let priceTarget = $("#price").text()
+                let priceReplace = priceTarget.replace("$", "");
+                let price= parseInt(priceReplace);
+                let quantity = parseInt($(".form-select").val());
                 let idProduct = e.target.dataset.id;
                 axios.post("/api/cart", {
                     idProduct,
-                    quantity
+                    quantity,
+                    price
                 })
                     .then((res) => {
                         if (res.status === 200) {

@@ -1,8 +1,4 @@
 const Schema = require("mongoose").Schema;
-<<<<<<< HEAD
-=======
-const ProductDao = require("../product/ProductDaoMongo")
->>>>>>> 2042e9627cdb88fcbafd63751f413952baa0396b
 const ContenedorMongo = require("../Container/ContainerMongo");
 
 
@@ -59,51 +55,53 @@ class CarritosDaoMongo extends ContenedorMongo {
         }
     }
 
-    async addItem(idUser, idProduct, quantity) {
+    async addItem(idUser, idProduct, quantity, price) {
         //Buscar el producto, agragarlo al carrito y si no existe crear uno
-        console.log("🦇  idUser", idUser)
-        console.log("🦇  idProduct", idProduct)
-        console.log("🦇  quantity", quantity)
         try {
             //? buscar el carrito
-            let respuesta = await this.coleccion.findOne({ owner: idUser });
+            let respuesta = await this.coleccion.findOne({ owner: idUser }).populate(
+                "items.item"
+            )
             if (!respuesta) {
                 //? si no existe, crearlo
-                respuesta = await this.coleccion.insertOne({ owner: idUser });
-            }
-            //? buscar el producto en collecion de productos
-            const producto = 
-            console.log("🦇  producto", producto)
-
-            if (!producto) {
-                throw new Error(`El producto no existe`);
+                respuesta = await this.coleccion.insertOne({
+                    owner: idUser,
+                    total: 0,
+                    items: [],
+                });
             }
 
             //? verificar si el producto ya existe en el carrito
-            let item = respuesta.items.find((item) => item.item._id == idProduct);
+            let item =
+                respuesta.items.length > 0
+                    ? respuesta.items.find((item) => item.item._id == idProduct)
+                    : null;
             if (item) {
                 //? si existe, actualizar la cantidad y el precio
                 item.quantity += quantity;
                 item.priceAmount = item.quantity * item.item.price;
                 respuesta.total += item.priceAmount;
+                await this.coleccion.updateOne(
+                    { owner: idUser, "items.item": idProduct },
+                    { $set: { "items.$.quantity": item.quantity, "items.$.priceAmount": item.priceAmount, total: respuesta.total } }
+                );
+                
             } else {
                 //? si no existe, agregarlo al carrito
                 item = {
                     item: idProduct,
                     quantity: quantity,
-                    priceAmount: item.quantity * item.item.price,
-                };
+                    price: price,
+                    priceAmount: price * quantity,
                 };
                 respuesta.items.push(item);
                 respuesta.total += item.priceAmount;
-            
-            //? actualizar el carrito
-            const respuestaActualizada = await this.coleccion.updateOne({ owner: idUser }, { $set: respuesta });
-            console.log("🦇  respuestaActualizada", respuestaActualizada)
-            //? devolver el carrito actualizado
-            return respuesta
-        }
-     catch (error) {
+                await this.coleccion.updateOne(
+                    { owner: idUser },
+                    { $push: { items: item }, $set: { total: respuesta.total } }
+                );
+            }
+        } catch (error) {
             throw new Error(`Error leer el ID de archivo: ${error}`);
         }
     }

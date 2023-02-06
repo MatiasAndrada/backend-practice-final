@@ -19,13 +19,9 @@ class CartRepo {
         
     }
 
-    async addToCart(idUser, idProduct, quantity) {
-        const cart = await this.CartDao.addItem(idUser, idProduct, quantity)
-        if (!cart) {
-            return null
-        }
-        const dto = new CartDto(cart)
-        return dto
+    async addToCart(idUser, idProduct, quantity, price) {
+        await this.CartDao.addItem(idUser, idProduct, quantity, price)
+
     }
 }
 

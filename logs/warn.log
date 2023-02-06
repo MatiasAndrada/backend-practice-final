@@ -80,3 +80,47 @@
 2023-02-05T19:09:44.718Z error: Error leer el ID de archivo: TypeError: collecion.findOne is not a function
 2023-02-05T19:14:12.027Z error: Error leer el ID de archivo: TypeError: ProductDao.getById is not a function
 2023-02-05T19:16:17.359Z error: Error leer el ID de archivo: TypeError: ProductDao.getById is not a function
+2023-02-05T19:30:37.478Z warn: Invalid Password
+2023-02-05T19:30:50.331Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:31:39.631Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:33:50.447Z warn: Invalid Password
+2023-02-05T19:33:54.542Z warn: Invalid Password
+2023-02-05T19:34:00.469Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:38:47.098Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:38:49.269Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:38:49.738Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:38:49.941Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:38:50.108Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:38:51.080Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:38:51.224Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:39:05.581Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:39:05.732Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:39:05.875Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:39:06.003Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:39:06.146Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:39:46.572Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:40:58.095Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:42:04.991Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:43:50.858Z warn: Invalid Password
+2023-02-05T19:43:59.102Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:44:47.690Z error: quantity is not defined
+2023-02-05T19:45:46.413Z error: quantity is not defined
+2023-02-05T19:46:36.355Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:47:47.944Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'quantity')
+2023-02-05T19:53:48.335Z error: CartDto is not a constructor
+2023-02-05T19:57:43.238Z warn: Invalid Password
+2023-02-05T19:59:43.125Z warn: Invalid Password
+2023-02-05T20:02:31.033Z warn: Invalid Password
+2023-02-05T20:02:35.402Z warn: Invalid Password
+2023-02-05T20:10:58.989Z error: CartDto is not a constructor
+2023-02-05T20:13:05.861Z error: CartDto is not a constructor
+2023-02-05T20:42:07.276Z warn: Invalid Password
+2023-02-05T20:42:51.749Z error: Error leer el ID de archivo: Error: Mongoose does not support calling populate() on nested docs. Instead of `doc.arr[0].populate("path")`, use `doc.populate("arr.0.path")`
+2023-02-05T20:42:56.104Z error: Error leer el ID de archivo: Error: Mongoose does not support calling populate() on nested docs. Instead of `doc.arr[0].populate("path")`, use `doc.populate("arr.0.path")`
+2023-02-05T20:42:57.519Z error: Error leer el ID de archivo: Error: Mongoose does not support calling populate() on nested docs. Instead of `doc.arr[0].populate("path")`, use `doc.populate("arr.0.path")`
+2023-02-05T20:45:00.353Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'populate')
+2023-02-05T20:45:12.862Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'populate')
+2023-02-05T20:46:10.335Z warn: Invalid Password
+2023-02-05T20:46:17.377Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'find')
+2023-02-05T20:47:25.877Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'findOne')
+2023-02-05T20:49:00.021Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'find')

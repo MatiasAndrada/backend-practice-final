@@ -21,8 +21,8 @@ exports.getCart = (req, res) =>
 
 exports.addToCart= (req, res) => {
     const idUser = req.user._id;
-    const {idProduct, quantity} = req.body;
-    CartRepo.addToCart(idUser, idProduct, quantity)
+    const {idProduct, quantity, price} = req.body;
+    CartRepo.addToCart(idUser, idProduct, quantity, price)
         .then((cart) => {
             res.json(cart);
         })
