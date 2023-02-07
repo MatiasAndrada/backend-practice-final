@@ -195,3 +195,10 @@
 2023-02-07T16:20:45.167Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
 2023-02-07T16:27:45.630Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
 2023-02-07T16:28:29.276Z error: Error leer el ID de archivo: Error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-07T17:05:51.281Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'getById')
+2023-02-07T17:07:17.046Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'getById')
+2023-02-07T17:08:01.120Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'getById')
+2023-02-07T17:09:44.171Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'getById')
+2023-02-07T17:11:51.888Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'getById')
+2023-02-07T17:16:17.426Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'getById')
+2023-02-07T17:43:20.429Z error: Error leer el ID de archivo: Error: Error leer el ID de archivo: VersionError: No matching document found for id "63e284e185e04d7be898abb9" version 10 modifiedPaths "items, total"

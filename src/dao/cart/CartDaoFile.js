@@ -12,7 +12,7 @@ class CarritosDaoFile extends ContainerFile {
             let respuesta = await this.getAll();
             let carrito = respuesta.find((carrito) => carrito.owner == idUser);
             if (!carrito) {
-                carrito = await this.save({ owner: idUser, items: [], total: 0 });
+                carrito = await this.save({ owner: idUser, items: [], total: 0, itemsCount: 0 });
             } else {
                 if (carrito.items.length > 0) {
                     let productos = JSON.parse(
@@ -30,16 +30,9 @@ class CarritosDaoFile extends ContainerFile {
                             quantity: item.quantity,
                             priceAmount: priceAmount,
                         });
-                        for (
-                            let i = 0;
-                            i < productosCarrito.length;
-                            i++
-                        ) {
-                            carrito.itemsCount += productosCarrito[i].quantity;
-                        }
                     });
                     carrito.items = productosCarrito;
-
+                    carrito.itemsCount = carrito.items.length;
                     carrito.total = carrito.items.reduce(
                         (total, item) => total + item.priceAmount,
                         0
@@ -72,25 +65,25 @@ class CarritosDaoFile extends ContainerFile {
             }
             carrito.total += producto.priceAmount;
             await this.saveAll(respuesta);
-            return carrito;
         } catch (error) {
             throw new Error(`Error al agregar el producto: ${error}`);
         }
     }
     async deleteCart(idUser) {
         try {
+            //pedir carrito del usuario y vaciarlo
             let respuesta = await this.getAll();
             let carrito = respuesta.find((carrito) => carrito.owner == idUser);
-            if (carrito) {
-                respuesta = respuesta.filter((carrito) => carrito.owner != idUser);
-                carrito = { owner: idUser, items: [], total: 0 };
-            }
+            carrito.items = [];
+            carrito.total = 0;
+            carrito.itemsCount = 0;
             await this.saveAll(respuesta);
             return carrito;
         } catch (error) {
-            throw new Error(`Error al eliminar el carrito: ${error}`);
+            throw new Error(`Error al eliminar el producto: ${error}`);
         }
     }
+
     async deleteItem(idUser, idProduct, priceAmount) {
         try {
             let respuesta = await this.getAll();

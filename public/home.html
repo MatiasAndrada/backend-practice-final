@@ -95,11 +95,10 @@
                 let idProduct = $(this).data("id")
                 let quantity = $(this).closest("div").find("#form-select").val();
                 let price = $(this).parents("#card").find("#price").text()
-                let priceNumber = Number(price.replace("$",""))
+                let priceNumber = Number(price.replace("$", ""))
                 console.log(
                     price,
                     idProduct,
-
                     quantity
                 )
                 axios.post(`/api/cart/`, {
@@ -107,11 +106,6 @@
                     price: priceNumber,
                     idProduct: idProduct
                 })
-                    .then((res) => {
-                        if (res.status === 200) {
-                            socket.emit("change-list");
-                        }
-                    });
             })
             $(".delete-item").click((e) => {
                 //paasar por param ek id

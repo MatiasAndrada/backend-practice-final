@@ -66,12 +66,15 @@ class ContenedorFile{
     async deleteById(x){
         console.log(0)
         try{
-            const idProductos = await this.getAll()            
-            const filterId = idProductos.filter((item) => item._id !== x)
-            await fs.promises.writeFile(this.fileData,JSON.stringify(filterId, null,2)) 
-        }catch(error){
-            throw new Error(`Error al eliminar el objeto del archivo: ${error}`)
+            const allProductos = await this.getAll()             
+            const index = allProductos.map(producto => producto._id).indexOf(x)
+            allProductos.splice(index,1)
+            await fs.promises.writeFile(this.fileData,JSON.stringify(allProductos, null,2))
         }
+        catch(error){
+            throw new Error(`Error leer el ID de archivo: ${error}`)
+        }
+        
     }
     async putById(x,newObj){
         try{

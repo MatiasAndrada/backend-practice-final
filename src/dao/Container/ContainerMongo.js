@@ -20,7 +20,7 @@ class ContainerMongo {
     async getById(_id) {
         
         try {
-            const respuesta = await this.coleccion.find({ _id: { $eq: `${_id}` } })
+            const respuesta = await this.coleccion.findOne({ _id: { $eq: `${_id}` } })
             
             return respuesta
         } catch (error) {

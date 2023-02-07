@@ -6,6 +6,7 @@ exports.getAll = (req, res) => {
 
     CartRepo.getAll(idUser)
         .then((cart) => {
+            console.log("controller", cart)
             res.json(cart);
         })
         .catch((err) => {
@@ -26,7 +27,7 @@ exports.save = (req, res) => {
         })
         .catch((err) => {
             logger.error(err);
-            res.status(500).json({
+            res.status(500).json({  
                 message: "Error adding to Cart",
             });
         });
