@@ -5,26 +5,25 @@ const productController = require("../controllers/productController");
 
 
 //Get all products
-router.get("/", isAuthenticated, productController.getProducts);
+router.get("/", isAuthenticated, productController.getAll);
 
 //Get product by id
-router.get("/:id", isAuthenticated,  productController.getProductById);
+router.get("/:id", isAuthenticated,  productController.getById);
 
 //Create new product
-router.post("/", productController.createProduct);
+router.post("/", productController.save);
 
 //Create new products
-router.post("/all" , productController.createProducts);
+router.post("/all" , productController.saveAll);
 
 //Update product
-router.put("/:id", isAuthenticated,  productController.updateProduct);
-
+router.put("/:id", isAuthenticated,  productController.update);
 
 //Delete all products
-router.delete("/", isAuthenticated,  productController.deleteProducts);
+router.delete("/", isAuthenticated,  productController.deleteAll);
 
 //Delete product
-router.delete("/:id",  isAuthenticated, productController.deleteProduct);
+router.delete("/:id",  isAuthenticated, productController.deleteById);
 
 
 

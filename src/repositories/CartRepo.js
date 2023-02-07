@@ -17,17 +17,17 @@ class CartRepo {
         
     }
 
-    async addToCart(idUser, idProduct, quantity, price) {
+    async save(idUser, idProduct, quantity, price) {
         await this.CartDao.addItem(idUser, idProduct, quantity, price)
-    }
-
-    async deleteById(idUser, idProduct, priceAmount) {
-        await this.CartDao.deleteItem(idUser, idProduct, priceAmount)
     }
 
     async deleteAll(idUser) {
         await this.CartDao.deleteCart(idUser)
     }
+    async deleteById(idUser, idProduct, priceAmount) {
+        await this.CartDao.deleteItem(idUser, idProduct, priceAmount)
+    }
+
 
 }
 

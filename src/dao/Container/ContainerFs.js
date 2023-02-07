@@ -47,9 +47,7 @@ class ContenedorFile{
     }
     async saveAll(newArray){
         try{
-            newArray.array.forEach(element => {
-                element.timestamp = moment().format('DD/MM/YYYY HH:mm');
-            });
+
             await fs.promises.writeFile(this.fileData,JSON.stringify(newArray, null,2))    
         }catch(error){
             throw new Error(`Error al guardar el archivo: ${error}`)
@@ -85,6 +83,17 @@ class ContenedorFile{
             throw new Error(`Error leer el ID de archivo: ${error}`)
         } 
     }
+    async update(newObj){
+        try{
+            const allProductos = await this.getAll()             
+            const index = allProductos.map(producto => producto._id).indexOf(newObj._id)
+            allProductos[index] = {...newObj}
+            await fs.promises.writeFile(this.fileData,JSON.stringify(allProductos, null,2))
+        }catch(error){
+            throw new Error(`Error leer el ID de archivo: ${error}`)
+        } 
+    }
+
 }
 
 module.exports = ContenedorFile

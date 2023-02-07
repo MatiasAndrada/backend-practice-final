@@ -124,3 +124,74 @@
 2023-02-06T18:34:15.748Z error: Error al guardar: Error: ENOENT: no such file or directory, open 'C:\Codes\npx-express-model\storage\fileSystem\productos.json'
 2023-02-06T18:34:58.628Z error: Error al guardar: Error: ENOENT: no such file or directory, open 'C:\Codes\npx-express-model\storage\fileSystem\productos.json'
 2023-02-06T18:37:40.348Z error: Error al guardar: Error: ENOENT: no such file or directory, open 'C:\Codes\npx-express-model\storage\filesystem\productos.json'
+2023-02-06T19:45:06.233Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'find')
+2023-02-06T19:58:30.847Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'find')
+2023-02-06T19:59:40.094Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'find')
+2023-02-06T20:17:51.390Z error: this.CartDao.deleteCart is not a function
+2023-02-06T20:22:24.860Z error: this.CartDao.deleteCart is not a function
+2023-02-06T20:22:44.116Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'find')
+2023-02-06T20:23:46.208Z error: Error leer el ID de archivo: TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+2023-02-06T20:23:46.425Z error: Error leer el ID de archivo: TypeError [ERR_INVALID_ARG_TYPE]: The "path" argument must be of type string or an instance of Buffer or URL. Received undefined
+2023-02-06T20:25:25.272Z error: Error leer el ID de archivo: Error: ENOENT: no such file or directory, open 'C:\Users\matia\Desktop\storage\filesystem\carrito.json'
+2023-02-06T20:30:32.989Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'length')
+2023-02-06T20:35:53.906Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'length')
+2023-02-06T20:36:27.860Z error: Error leer el ID de archivo: TypeError: ProductDaoFile.getById is not a function
+2023-02-06T20:36:28.151Z error: Error leer el ID de archivo: TypeError: ProductDaoFile.getById is not a function
+2023-02-06T20:36:28.564Z error: Error leer el ID de archivo: TypeError: ProductDaoFile.getById is not a function
+2023-02-06T20:36:29.234Z error: Error leer el ID de archivo: TypeError: ProductDaoFile.getById is not a function
+2023-02-06T20:38:50.848Z error: this.CartDao.addItem is not a function
+2023-02-06T20:51:01.605Z error: Error al agregar producto al carrito: Error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-06T20:59:38.271Z error: Error al agregar producto al carrito: Error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-06T20:59:49.892Z error: Error al agregar producto al carrito: Error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-06T20:59:50.119Z error: Error al agregar producto al carrito: Error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-06T21:01:43.440Z error: Error al agregar producto al carrito: Error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-06T21:05:56.863Z error: Error leer el ID de archivo: Error: ENOENT: no such file or directory, open 'C:\Users\matia\Desktop\codes\npx-express-model\src\dao\productos\productos.json'
+2023-02-06T21:07:12.922Z error: Error leer el ID de archivo: Error: ENOENT: no such file or directory, open 'C:\Users\matia\Desktop\codes\npx-express-model\ .\src\stora\fileSystem\carrito.json'
+2023-02-06T21:07:30.185Z error: Error leer el ID de archivo: Error: ENOENT: no such file or directory, open 'C:\Users\matia\Desktop\codes\npx-express-model\ .\src\storage\fileSystem\carrito.json'
+2023-02-06T21:15:40.006Z error: Error al agregar el producto: TypeError: Cannot read properties of undefined (reading 'find')
+2023-02-06T21:30:32.393Z error: Error leer el ID de archivo: TypeError: carrito.items.length is not a function
+2023-02-06T21:32:38.439Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'length')
+2023-02-06T21:52:40.514Z error: this.CartDao.deleteItem is not a function
+2023-02-07T00:26:20.996Z error: this.CartDao.deleteCart is not a function
+2023-02-07T00:29:57.338Z error: this.CartDao.deleteCart is not a function
+2023-02-07T00:33:08.084Z error: this.CartDao.deleteCart is not a function
+2023-02-07T00:36:00.582Z error: this.CartDao.deleteItem is not a function
+2023-02-07T00:39:03.385Z error: this.CartDao.deleteCart is not a function
+2023-02-07T00:41:36.322Z error: this.CartDao.deleteItem is not a function
+2023-02-07T00:41:39.310Z error: this.CartDao.deleteCart is not a function
+2023-02-07T13:01:23.829Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'length')
+2023-02-07T13:03:05.222Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'length')
+2023-02-07T13:04:15.029Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'length')
+2023-02-07T13:05:29.543Z error: Error al agregar el producto: TypeError: Cannot read properties of undefined (reading 'items')
+2023-02-07T13:05:57.552Z error: Error al agregar el producto: TypeError: Cannot read properties of undefined (reading 'items')
+2023-02-07T13:06:06.822Z error: Error al agregar el producto: TypeError: Cannot read properties of undefined (reading 'items')
+2023-02-07T13:06:07.890Z error: Error al agregar el producto: TypeError: Cannot read properties of undefined (reading 'items')
+2023-02-07T13:06:10.859Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'length')
+2023-02-07T13:06:12.837Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'length')
+2023-02-07T13:06:39.731Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'length')
+2023-02-07T13:10:07.894Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'length')
+2023-02-07T13:13:12.408Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'length')
+2023-02-07T13:14:50.426Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'length')
+2023-02-07T13:16:37.828Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'length')
+2023-02-07T13:23:15.232Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'length')
+2023-02-07T14:12:54.331Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-07T14:15:48.758Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-07T14:16:07.430Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-07T14:18:58.975Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-07T14:51:13.172Z error: Error leer el ID de archivo: ReferenceError: total is not defined
+2023-02-07T14:53:27.317Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-07T14:53:58.505Z error: Error leer el ID de archivo: ReferenceError: total is not defined
+2023-02-07T14:54:16.617Z error: Error leer el ID de archivo: ReferenceError: total is not defined
+2023-02-07T14:54:32.182Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-07T14:57:21.051Z error: Error leer el ID de archivo: ReferenceError: total is not defined
+2023-02-07T15:19:06.148Z error: Error leer el ID de archivo: ReferenceError: total is not defined
+2023-02-07T15:20:46.506Z error: Error leer el ID de archivo: ReferenceError: total is not defined
+2023-02-07T15:21:13.419Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-07T15:21:23.168Z error: Error leer el ID de archivo: ReferenceError: total is not defined
+2023-02-07T15:53:28.803Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-07T15:53:34.831Z error: Error leer el ID de archivo: Error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-07T15:58:06.035Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-07T15:58:20.948Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-07T16:20:45.167Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-07T16:27:45.630Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')
+2023-02-07T16:28:29.276Z error: Error leer el ID de archivo: Error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading '_id')

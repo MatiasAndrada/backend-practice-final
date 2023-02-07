@@ -1,1 +1,29 @@
-[]
+[
+  {
+    "name": "Apple iPhone XR",
+    "description": "Fecha de lanzamiento: 12 de septiembre de 2018",
+    "price": "1000",
+    "thumbnail": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MRW62?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1569617849402",
+    "category": "Phone",
+    "_id": 1,
+    "timestamp": "06/02/2023 16:44"
+  },
+  {
+    "name": "Apple iPhone 11",
+    "description": "Celular",
+    "price": "1300",
+    "thumbnail": "https://plazavea.vteximg.com.br/arquivos/ids/19521548-512-512/imageUrl_2.jpg",
+    "category": "Phone",
+    "_id": 2,
+    "timestamp": "06/02/2023 16:44"
+  },
+  {
+    "name": "Apple iPhone 12",
+    "description": "Celular",
+    "price": "1500",
+    "thumbnail": "https://www.macstation.com.ar/img/productos/2492-2317-1.jpg",
+    "category": "Phone",
+    "_id": 3,
+    "timestamp": "06/02/2023 16:44"
+  }
+]

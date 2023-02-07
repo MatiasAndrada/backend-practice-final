@@ -1,7 +1,7 @@
 const { ProductRepo } = require("../repositories/ProductRepo");
 const logger = require("../utils/logger");
 
-exports.getProducts = (req, res) => {
+exports.getAll = (req, res) => {
     if (req.query.filter) {
         next();
         return;
@@ -18,7 +18,7 @@ exports.getProducts = (req, res) => {
         });
 };
 
-exports.getProductById = (req, res) => {
+exports.getById = (req, res) => {
     ProductRepo.getById(req.params.id)
         .then((product) => {
             res.json(product);
@@ -31,7 +31,7 @@ exports.getProductById = (req, res) => {
         });
 };
 
-exports.createProduct = (req, res) => {
+exports.save = (req, res) => {
     // Validate request
     if (!req.body) {
         res.status(400).json({
@@ -58,7 +58,7 @@ exports.createProduct = (req, res) => {
         });
 };
 
-exports.createProducts = (req, res) => {
+exports.saveAll = (req, res) => {
     ProductRepo.saveAll(req.body)
         .then(() => {
             res.json({ message: "Products created successfully" });
@@ -71,7 +71,7 @@ exports.createProducts = (req, res) => {
         });
 };
 
-exports.updateProduct = (req, res) => {
+exports.update = (req, res) => {
     ProductRepo.update(req.params.id, req.body)
         .then(() => {
             res.json({ message: "Product updated successfully" });
@@ -84,7 +84,7 @@ exports.updateProduct = (req, res) => {
         });
 };
 
-exports.deleteProducts = (req, res) => {
+exports.deleteAll = (req, res) => {
     if (req.query.filter) {
         next();
         return;
@@ -100,8 +100,8 @@ exports.deleteProducts = (req, res) => {
             });
         });
 };
-exports.deleteProduct = (req, res) => {
-    ProductRepo.delete(req.params.id)
+exports.deleteById = (req, res) => {
+    ProductRepo.deleteById(req.params.id)
         .then(() => {
             res.json({ message: "Product deleted successfully" });
         })
@@ -111,5 +111,6 @@ exports.deleteProduct = (req, res) => {
                 message: "Error deleting Product with id " + req.params.id,
             });
         });
+
 };
 

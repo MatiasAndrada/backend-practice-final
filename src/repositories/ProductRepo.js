@@ -17,7 +17,7 @@ class ProductRepo {
         }
     }
     
-    async getById(id) {
+    async getById(id, param) {
         try {
             const product = await this.productDao.getById(id);
             if (!product) {
@@ -58,7 +58,7 @@ class ProductRepo {
         }
     }
 
-    async delete(id) {
+    async deleteById(id) {
         try {
             await this.productDao.deleteById(id)
         }

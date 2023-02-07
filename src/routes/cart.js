@@ -10,13 +10,15 @@ const cartController = require("../controllers/cartController");
 router.get("/", isAuthenticated, cartController.getAll);
 
 //Add to cart
-router.post("/", isAuthenticated, cartController.addToCart);
+router.post("/", isAuthenticated, cartController.save);
+
+//Delete all cart
+router.delete("/", isAuthenticated, cartController.deleteAll);
 
 //Delete from cart
 router.delete("/:id", isAuthenticated, cartController.deleteById);
 
-//Delete all cart
-router.delete("/", isAuthenticated, cartController.deleteAll);
+
 
 
 
