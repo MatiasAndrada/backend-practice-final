@@ -202,3 +202,6 @@
 2023-02-07T17:11:51.888Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'getById')
 2023-02-07T17:16:17.426Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'getById')
 2023-02-07T17:43:20.429Z error: Error leer el ID de archivo: Error: Error leer el ID de archivo: VersionError: No matching document found for id "63e284e185e04d7be898abb9" version 10 modifiedPaths "items, total"
+2023-02-07T18:30:08.184Z error: this.CartDao.getCart is not a function
+2023-02-07T18:30:39.009Z error: this.CartDao.getCart is not a function
+2023-02-07T18:40:07.465Z error: Error leer el ID de archivo: Error: Value for argument "value" is not a valid Firestore document. Couldn't serialize object of type "ObjectId". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the "new" operator).

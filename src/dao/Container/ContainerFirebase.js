@@ -17,7 +17,7 @@ class ContainerFirebase {
       const result = [];
       const snapshot = await this.coleccion.get();
       snapshot.forEach((doc) => {
-        result.push({ id: doc.id, ...doc.data() });
+        result.push({ _id: doc.id, ...doc.data() });
       });
       return result;
     } catch (err) {
