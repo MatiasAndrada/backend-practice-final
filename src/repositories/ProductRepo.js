@@ -9,7 +9,7 @@ class ProductRepo {
 
     async getAll() {
         try {
-            const products = await this.productDao.getAll();
+            const products = await this.productDao.getProducts();
             const dto = products.map((product) => new ProductDto(product));
             return dto;
         } catch (error) {
@@ -17,9 +17,9 @@ class ProductRepo {
         }
     }
     
-    async getById(id, param) {
+    async getById(id) {
         try {
-            const product = await this.productDao.getById(id);
+            const product = await this.productDao.getProductById(id);
             if (!product) {
                 return null;
             }
@@ -32,7 +32,7 @@ class ProductRepo {
 
     async save(newObj) {
         try {
-            const newId = await this.productDao.save(newObj)
+            const newId = await this.productDao.saveProduct(newObj)
             return newId
         }
         catch (error) {

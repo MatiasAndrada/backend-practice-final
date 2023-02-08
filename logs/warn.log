@@ -239,3 +239,47 @@
 2023-02-07T18:30:08.184Z error: this.CartDao.getCart is not a function
 2023-02-07T18:30:39.009Z error: this.CartDao.getCart is not a function
 2023-02-07T18:40:07.465Z error: Error leer el ID de archivo: Error: Value for argument "value" is not a valid Firestore document. Couldn't serialize object of type "ObjectId". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the "new" operator).
+2023-02-07T19:28:34.382Z error: this.CartDao.addItem is not a function
+2023-02-07T19:34:50.601Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T19:34:52.644Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T19:37:52.138Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T19:40:50.911Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T19:41:15.675Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T19:42:24.877Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T22:53:34.599Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T22:59:31.699Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:08:52.068Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:08:58.626Z error: Error al borrar los archivos: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:09:56.280Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:12:17.286Z warn: Invalid Password
+2023-02-07T23:12:21.507Z warn: Invalid Password
+2023-02-07T23:12:33.491Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:14:10.611Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:15:13.198Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:15:23.211Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:15:26.523Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:15:54.962Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:17:18.953Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:17:24.082Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:17:42.168Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:34:23.567Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:38:44.005Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:39:39.272Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:40:33.877Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:40:52.915Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:43:04.140Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:43:07.369Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:43:10.275Z error: Error leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:51:12.019Z error: Error al leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:51:51.851Z error: this.CartDao.addItem is not a function
+2023-02-07T23:52:35.652Z error: Error al leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:53:40.819Z error: Error al leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:54:08.396Z warn: Invalid Password
+2023-02-07T23:54:18.015Z error: Error al leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:55:18.699Z error: Error al leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-07T23:55:24.739Z error: this.CartDao.addItem is not a function
+2023-02-08T00:03:58.029Z error: Error al leer los archivos: Error: Value for argument "value" is not a valid Firestore document. Couldn't serialize object of type "ObjectId". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the "new" operator).
+2023-02-08T00:04:35.434Z error: Error al leer los archivos: Error: Value for argument "value" is not a valid Firestore document. Couldn't serialize object of type "ObjectId". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the "new" operator).
+2023-02-08T00:05:44.685Z error: Error al leer los archivos: Error: Value for argument "value" is not a valid Firestore document. Couldn't serialize object of type "ObjectId". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the "new" operator).
+2023-02-08T00:05:47.296Z error: this.CartDao.deleteCart is not a function
+2023-02-08T00:12:15.603Z warn: Invalid Password

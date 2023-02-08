@@ -1,111 +1,74 @@
-const admin = require("firebase-admin");
-const config = require("../../config");
-
-admin.initializeApp({
-  credential: admin.credential.cert(config.dbConfig.firebase),
-});
-const db = admin.firestore();
-//const this.coleccion = db.collection('productos')
-
+const db = require("../../firebaseConfig")
 class ContainerFirebase {
-  constructor(nombreColeccion) {
-    this.coleccion = db.collection(nombreColeccion);
+  constructor(collection) {
+    this.coleccion = db.collection(collection);
   }
 
   async getAll() {
     try {
-      const result = [];
-      const snapshot = await this.coleccion.get();
-      snapshot.forEach((doc) => {
-        result.push({ _id: doc.id, ...doc.data() });
-      });
-      return result;
-    } catch (err) {
-      return [];
-    }
-  }
-
-  async getById(x) {
-    try {
-      const item = await this.coleccion.doc(`${x}`).get();
-      if (!item.exists) {
-        throw new Error(`Error leer el ID del item`);
-      } else {
-        const respuesta = item.data();
-        return { id: x, ...respuesta };
+      const respuesta = await this.coleccion.get();
+      if (respuesta.empty) {
+        return [];
       }
-    } catch (err) {
-      throw new Error(`Error leer el ID de archivo: ${err}`);
+      return respuesta.docs.map((documento) => ({
+        _id: documento.id,
+        ...documento.data(),
+      }));
+    } catch (error) {
+      throw new Error(`Error al leer los archivos: ${error}`);
     }
   }
 
-  async saveAll(arrayItems) {
+  async getById(id) {
     try {
-      let preSave = await this.getAll();
-      if (preSave.length === 0) {
-        await this.createAll(arrayItems);
-      } else {
-        for (let i = 0; i < preSave.length; i++) {
-          await this.coleccion.doc(`${preSave[i].id}`).delete();
-        }
-        await this.createAll(arrayItems);
+      const respuesta = await this.coleccion.doc(id).get();
+      console.log("🦇 ~ file: ContainerFirebase.js:25 ~ ContainerFirebase ~ getById ~ respuesta", respuesta)
+      if (!respuesta.exists) {
+        return null;
       }
+      return { _id: respuesta.id, ...respuesta.data() };
     } catch (error) {
-      throw new Error(`Error al guardar: ${error}`);
+      throw new Error(`Error al leer el ID de archivo: ${error}`);
     }
   }
 
-  async save(newObj) {
-    const informacion = await this.getAll();
-    let newId;
-    if (informacion.length == 0) {
-      newId = 1;
-    } else {
-      newId = parseInt(informacion[informacion.length - 1].id) + 1;
-    }
+  async save(object) {
     try {
-      await this.coleccion.doc(`${newId}`).set(newObj);
-      return newId;
+      const respuesta = await this.coleccion.add(object);
+      return respuesta.id;
     } catch (error) {
-      throw new Error(`Error al guardar: ${error}`);
+      throw new Error(`Error al guardar el archivo: ${error}`);
     }
   }
-
-  async deleteById(x) {
+  async updateById(id, object) {
     try {
-      const res = await this.coleccion.doc(`${x}`).delete();
+      await this.coleccion.doc(id).update(object);
     } catch (error) {
-      throw new Error(`Error al eliminar el objeto del archivo: ${error}`);
+      throw new Error(`Error al actualizar el archivo: ${error}`);
     }
   }
 
+  async deleteById(id) {
+    try {
+      await this.coleccion.doc(id).delete();
+    } catch (error) {
+      throw new Error(`Error al borrar el archivo: ${error}`);
+    }
+  }
   async deleteAll() {
     try {
-      let preDelete = await this.getAll();
-      for (let i = 0; i < preDelete.length; i++) {
-        await this.coleccion.doc(`${preDelete[i].id}`).delete();
-      }
+      const respuesta = await this.coleccion.get();
+      respuesta.docs.forEach((documento) => {
+        this.coleccion.doc(documento._id).delete();
+      });
     } catch (error) {
-      throw new Error(`Error al eliminar el objeto del archivo: ${error}`);
-    }
-  }
-
-  async putById(x, newObj) {
-    try {
-      await this.coleccion.doc(`${x}`).update(newObj);
-    } catch (error) {
-      throw new Error(`Error leer el ID de archivo: ${error}`);
-    }
-  }
-
-  async createAll(arrayCreate) {
-    try {
-      for (let i = 0; i < arrayCreate.length; i++) {
-        await this.coleccion.doc(`${i + 1}`).set(arrayCreate[i]);
-      }
-    } catch (error) {
-      throw new Error(`Error al crear el objeto en el archivo: ${error}`);
+      throw new Error(`Error al borrar los archivos: ${error}`);
     }
   }
 }
+
 module.exports = ContainerFirebase;
+
+
+
+

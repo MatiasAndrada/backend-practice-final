@@ -4,11 +4,12 @@ const CartDto = require("../dto/cartDto");
 
 class CartRepo {
     constructor() {
-        this.CartDao = CartDao
+        this.CartDao = CartDao;
     }
 
     async getAll(idUser) {
         const cart = await this.CartDao.getCart(idUser)
+        console.log("🦇 ~ file: CartRepo.js:12 ~ CartRepo ~ getAll ~ cart", cart)
         if (!cart) {
             return null
         }

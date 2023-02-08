@@ -1,6 +1,5 @@
 // config.js
 const dotenv = require('dotenv');
-const { mongo } = require('mongoose');
 const path = require('path');
 
 dotenv.config({

@@ -18,7 +18,6 @@ exports.getAll = (req, res) => {
 };
 
 exports.save = (req, res) => {
-    console.log(0)
     const idUser = req.user._id;
     const { quantity, price, idProduct } = req.body;
     CartRepo.save(idUser, idProduct, quantity, price)
