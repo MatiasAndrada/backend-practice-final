@@ -22,7 +22,6 @@ class ContainerFirebase {
   async getById(id) {
     try {
       const respuesta = await this.coleccion.doc(id).get();
-      console.log("🦇 ~ file: ContainerFirebase.js:25 ~ ContainerFirebase ~ getById ~ respuesta", respuesta)
       if (!respuesta.exists) {
         return null;
       }

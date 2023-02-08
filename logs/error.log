@@ -245,3 +245,38 @@
 2023-02-08T00:04:35.434Z error: Error al leer los archivos: Error: Value for argument "value" is not a valid Firestore document. Couldn't serialize object of type "ObjectId". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the "new" operator).
 2023-02-08T00:05:44.685Z error: Error al leer los archivos: Error: Value for argument "value" is not a valid Firestore document. Couldn't serialize object of type "ObjectId". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the "new" operator).
 2023-02-08T00:05:47.296Z error: this.CartDao.deleteCart is not a function
+2023-02-08T00:54:39.574Z error: this.CartDao.getCart is not a function
+2023-02-08T00:56:24.249Z error: this.CartDao.getCart is not a function
+2023-02-08T00:57:39.960Z error: Error al leer los archivos: Error: Value for argument "value" is not a valid Firestore document. Couldn't serialize object of type "ObjectId". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the "new" operator).
+2023-02-08T00:57:42.397Z error: this.CartDao.deleteCart is not a function
+2023-02-08T00:59:34.809Z error: Error al leer los archivos: Error: Value for argument "value" is not a valid Firestore document. Couldn't serialize object of type "ObjectId". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the "new" operator).
+2023-02-08T02:56:22.239Z error: Error al leer los archivos: Error: Value for argument "value" is not a valid Firestore document. Couldn't serialize object of type "ObjectId". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the "new" operator).
+2023-02-08T02:58:41.144Z error: Error al leer los archivos: Error: Value for argument "value" is not a valid Firestore document. Couldn't serialize object of type "ObjectId". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the "new" operator).
+2023-02-08T03:01:02.841Z error: Error al leer los archivos: Error: Value for argument "value" is not a valid Firestore document. Couldn't serialize object of type "ObjectId". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the "new" operator).
+2023-02-08T03:05:55.780Z error: Error al leer los archivos: TypeError: Cannot read properties of undefined (reading 'docs')
+2023-02-08T03:09:26.462Z error: Error al leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T03:11:01.924Z error: Error al leer los archivos: Error: Value for argument "value" is not a valid Firestore document. Couldn't serialize object of type "ObjectId". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the "new" operator).
+2023-02-08T03:11:54.307Z error: Error al leer los archivos: Error: Value for argument "value" is not a valid Firestore document. Couldn't serialize object of type "ObjectId". Firestore doesn't support JavaScript objects with custom prototypes (i.e. objects that were created via the "new" operator).
+2023-02-08T03:14:26.524Z error: Error al guardar el archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T03:20:03.603Z error: this.CartDao.addItem is not a function
+2023-02-08T03:20:09.529Z error: Error al leer el ID de archivo: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T03:32:58.521Z error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T03:34:27.166Z error: cosnole is not defined
+2023-02-08T03:35:01.625Z error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T03:36:48.379Z error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T18:03:45.807Z error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T18:04:12.181Z error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T18:05:10.991Z error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T19:00:39.244Z error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T19:04:53.229Z error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T19:08:05.366Z error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T19:09:55.517Z error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T19:10:48.285Z error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T19:11:31.642Z error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T19:12:34.328Z error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T19:15:44.960Z error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-02-08T19:20:25.322Z error: Assignment to constant variable.
+2023-02-08T19:24:05.569Z error: Assignment to constant variable.
+2023-02-08T19:25:01.506Z error: Assignment to constant variable.
+2023-02-08T19:25:14.964Z error: Assignment to constant variable.
+2023-02-08T19:27:18.781Z error: Assignment to constant variable.

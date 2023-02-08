@@ -16,6 +16,7 @@ mongoose.connect(config.dbConfig.mongodb.cnxStr);
 
 const socket = require("socket.io");
 
+
 //!view engine setup
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));

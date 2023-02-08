@@ -1,6 +1,4 @@
-const { appconfig } = require("../config");
-//Para pasar el virtual como Json
-
+const { appConfig } = require("../config");
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema
 
@@ -19,9 +17,14 @@ const userSchema = new Schema({
 });
 
 userSchema.virtual("avatarUrl").get(function () {
-  const { port, host } = appconfig;
+  const { port, host } = appConfig;
   return `http://${host}:${port}/public/${this.avatarFilename}`
 })
+//virtual a json
+userSchema.set("toJSON", {
+  virtuals: true,
+});
+
 
 module.exports = mongoose.model("User", userSchema);
 

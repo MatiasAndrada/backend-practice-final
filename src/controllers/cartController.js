@@ -3,7 +3,6 @@ const logger = require("../utils/logger");
 
 exports.getAll = (req, res) => {
     const idUser = req.user._id;
-
     CartRepo.getAll(idUser)
         .then((cart) => {
             console.log("controller", cart)

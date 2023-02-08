@@ -9,7 +9,6 @@ class CartRepo {
 
     async getAll(idUser) {
         const cart = await this.CartDao.getCart(idUser)
-        console.log("🦇 ~ file: CartRepo.js:12 ~ CartRepo ~ getAll ~ cart", cart)
         if (!cart) {
             return null
         }
@@ -19,14 +18,14 @@ class CartRepo {
     }
 
     async save(idUser, idProduct, quantity, price) {
-        await this.CartDao.addItem(idUser, idProduct, quantity, price)
+        await this.CartDao.addItemToCart(idUser, idProduct, quantity, price)
     }
 
     async deleteAll(idUser) {
         await this.CartDao.deleteCart(idUser)
     }
     async deleteById(idUser, idProduct, priceAmount) {
-        await this.CartDao.deleteItem(idUser, idProduct, priceAmount)
+        await this.CartDao.deleteItemCart(idUser, idProduct, priceAmount)
     }
 
 

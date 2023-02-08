@@ -1,5 +1,6 @@
 const LocalStrategy = require("passport-local").Strategy;
 const User = require("../models/user.model");
+const UserDto = require("../dto/userDto");
 const bCrypt = require("bcryptjs");
 const logger = require("../utils/logger");
 //const Cart = require("../models/cart.model");
@@ -52,7 +53,9 @@ module.exports = function (passport) {
                   throw err;
                 }
                 logger.info("User Registration succesful");
-                return done(null, newUser);
+                //userDto
+                const userDto = new UserDto(newUser);
+                return done(null, userDto);
               });
             }
           });
