@@ -1,6 +1,5 @@
 const LocalStrategy   = require('passport-local').Strategy;
 const User = require('../models/user.model');
-const UserDto = require("../dto/UserDto")
 const bCrypt = require('bcryptjs');
 const logger = require("../utils/logger")
 
@@ -28,9 +27,7 @@ module.exports = function(passport){
                     }
                     // User and password both match, return user from done method
                     // which will be treated like success
-                    //user dto
-                    const userDto = new UserDto(user);
-                    return done(null, userDto);
+                    return done(null, user);
                 }
             );
 

@@ -1,5 +1,6 @@
 /* ------------------ PASSPORT -------------------- */
 const passport = require("passport");
+const UserDto = require("../dto/UserDto")
 const { Strategy: LocalStrategy } = require("passport-local");
 
 const usuarios = [];
@@ -24,7 +25,9 @@ passport.use(
             };
             usuarios.push(user);
 
-            return done(null, user);
+            //return dto
+            const userDto = new UserDto(user);
+            return done(null, userDto);
         }
     )
 );
@@ -44,7 +47,9 @@ passport.use(
 
         user.contador = 0;
 
-        return done(null, user);
+        //return dto
+        const userDto = new UserDto(user);
+        return done(null, userDto);
     })
 );
 
