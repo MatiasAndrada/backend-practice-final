@@ -1,6 +1,6 @@
 
 const {CartDao} = require('../dao/index');
-const CartDto = require("../dto/cartDto");
+const CartDto = require("../dto/CartDto");
 
 class CartRepo {
     constructor() {
