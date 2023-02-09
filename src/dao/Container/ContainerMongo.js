@@ -1,5 +1,4 @@
 const mongoose = require('mongoose');
-const config = require('../../config.js');
 
 class ContainerMongo {
     constructor(nombreColeccion, schema) {
