@@ -7,6 +7,3 @@ services:
     restart: always
     ports:
     - "80:80"
-    environment:
-      - HOST=54.166.245.125
-      - PORT=80
