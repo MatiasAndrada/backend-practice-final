@@ -56,3 +56,7 @@ function getCartList() {
     });
     return data;
   }
+
+  //export socket
+  module.exports = socket;
+  

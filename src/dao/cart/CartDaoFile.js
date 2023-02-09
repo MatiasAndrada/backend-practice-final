@@ -46,8 +46,7 @@ class CarritosDaoFile extends ContainerFile {
         }
     }
 
-    //Buscar producto, buscar el carrito, y agregarlo
-    async addItem(idUser, idProduct, quantity, price) {
+    async addItemToCart(idUser, idProduct, quantity, price) {
         try {
             let respuesta = await this.getAll();
             let carrito = respuesta.find((carrito) => carrito.owner == idUser);
@@ -84,7 +83,7 @@ class CarritosDaoFile extends ContainerFile {
         }
     }
 
-    async deleteItem(idUser, idProduct, priceAmount) {
+    async deleteItemCart(idUser, idProduct, priceAmount) {
         try {
             let respuesta = await this.getAll();
             let carrito = respuesta.find((carrito) => carrito.owner == idUser);

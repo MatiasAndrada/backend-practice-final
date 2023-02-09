@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-6">
+
+        <form id="form">
+          <h3 class="text-center">Send Message</h3>
+          <div class="mb-6">
+            <label for="exampleInputEmail1" class="form-label">Usuario</label>
+            <input type="text" class="form-control" id="InputUser" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-6">
+            <label for="exampleInputPassword1" class="form-label">Message</label>
+            <input type="text" class="form-control" id="InputMessage">
+          </div>
+          <button type="submit" class="btn btn-success">
+            <i class="fas fa-paper-plane">Send</i>
+          </button>
+        </form>
+      </div>
+      <div class="col-6">
+        <div id="Messages">
+          <h3 class="text-center">Messages</h3>
+
+          <ul class="list-group" id="ListMessages">
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      //form socket emit
+      $("#form").submit(function (e) {
+        e.preventDefault();
+        let message = {
+          user: $("#InputUser").val(),
+          message: $("#InputMessage").val(),
+          date: moment().format("HH:mm:ss"),
+        };
+        console.log(message);
+        socket.emit("new-message", message);
+        $("#InputMessage").val("");
+      });
+      
+      //socket on message
+      socket.on("new-chat-message", (data) => {
+  //recibimos el mensaje
+  const list = data.map((message) => {
+    return `<li class="list-group-item">
+        <p><strong>${message.user}</strong>: ${message.message}</p>
+        <p class="text-end"><small>${message.date}</small></p>
+        </li>`;
+  });
+  listMessages.innerHTML = list.join("");
+});
+
+
+
+    </script>
+    
+</body>    
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="./javascripts/socket.io.js"></script>
+
+
+
+</html>

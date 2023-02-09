@@ -19,6 +19,10 @@ exports.getAll = (req, res) => {
 };
 
 exports.getById = (req, res) => {
+    if (req.query.filter) {
+        next();
+        return;
+    }
     ProductRepo.getById(req.params.id)
         .then((product) => {
             res.json(product);
@@ -30,6 +34,13 @@ exports.getById = (req, res) => {
             });
         });
 };
+
+exports.getByCategory = async (req, res) => {
+    const productos   = await ProductRepo.getAll();
+    const productosFiltrados = productos.filter(producto => producto.category === req.params.category);
+    res.json(productosFiltrados);
+};
+
 
 exports.save = (req, res) => {
     // Validate request

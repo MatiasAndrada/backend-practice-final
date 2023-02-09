@@ -14,17 +14,28 @@
 
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-black" id="nav-bar">
-        <a class="navbar-brand" href="/home">
-            <img src="./images/icon.png" width="140" alt="Icon">
-        </a>
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a class="nav-link text-link active disabled">Admin</a>
-            </li>
-        </ul>
+    <nav class="navbar navbar-dark bg-dark d-flex flex-row" id="nav-bar">
+        <div class="col-4">
+
+            <a class="navbar-brand" href="/home">
+                <img src="./images/icon.png" width="140" alt="Icon">
+            </a>
+
+        </div>
+        <div class="container-fluid col-8">
+
+            <div class="container d-flex justify-content-evenly">
+                <button id="userData" class="btn btn-success" onclick="location.href = '/datos'" type="button">Data
+                    User</button>
+                <button  class="btn btn-warning" onclick="location.href = '/messages'" type="button">Messages</button>
+            
+                <button id="cart" class="btn btn-primary" onclick="location.href = '/dashboard'"
+                    type="button">Cart</button>
+                <button id="logOutBtn" class="btn btn-danger" type="button">Log Out</button>
+            </div>
         </div>
     </nav>
+
     <!-- End Navbar -->
 
     <!-- Form product -->
@@ -61,6 +72,9 @@
         <!-- End Form product -->
 
         <!-- List product -->
+
+
+
         <div class="container m-3">
             <div class="row">
                 <div class="col-12">

@@ -63,10 +63,18 @@ db.once("open", () => {
 
 
 //!SOCKET.IO
+const messages = [];
 const io = socket(server);
 io.on("connection", (socket) => {
   socket.on("change-list", () => {
     io.sockets.emit("refresh-new-products");
+
+    socket.emit("new-chat-message", messages);
+    
+    socket.on("new-message", (message) => {
+      messages.push(message);
+      io.sockets.emit("new-chat-message", messages);
+    });
   });
   socket.on("change-list-cart", () => {
     socket.emit("refresh-new-products-cart");
@@ -86,6 +94,7 @@ app.use("/", require("./routes/primary"));
 app.use("/api", require("./routes/info"));
 app.use("/api/product", require("./routes/product"));
 app.use("/api/cart", require("./routes/cart")); 
+app.use("/messages", require("./routes/messages"))
 
 
 module.exports = app;

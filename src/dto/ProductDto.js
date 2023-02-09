@@ -9,6 +9,7 @@ class ProductoDto {
         this.description = product.description;
         this.price = product.price;
         this.thumbnail = product.thumbnail;
+        this.category = product.category
 
     }
 
@@ -18,7 +19,8 @@ class ProductoDto {
             description: Joi.string().min(3).max(50).required(),
             price: Joi.number().integer().min(1).required(),
             thumbnail: Joi.string().min(3).max(50).required(),
-            _id: Joi.string().min(3).max(50).required()
+            _id: Joi.string().min(3).max(50).required(),
+            category: Joi.string().min(3).max(50).required(),
         });
         return schema.validate(product);
     }

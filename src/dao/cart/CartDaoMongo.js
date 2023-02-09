@@ -61,8 +61,7 @@ class CarritosDaoMongo extends ContenedorMongo {
         }
     }
 
-    async addItem(idUser, idProduct, quantity, price) {
-        //Buscar el producto, agragarlo al carrito y si no existe crear uno
+    async addItemToCart(idUser, idProduct, quantity, price) {
         try {
             //? buscar el carrito
             let respuesta = await this.coleccion.findOne({ owner: idUser }).populate(
@@ -108,7 +107,7 @@ class CarritosDaoMongo extends ContenedorMongo {
         }
     }
 
-    async deleteItem(idUser, idProduct, priceAmount) {
+    async deleteItemCart(idUser, idProduct, priceAmount) {
         try {
             //? buscar el carrito
             const respuesta = await this.coleccion.findOne({ owner: idUser }).populate(

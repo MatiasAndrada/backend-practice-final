@@ -5,10 +5,13 @@ const productController = require("../controllers/productController");
 
 
 //Get all products
-router.get("/", isAuthenticated, productController.getAll);
+router.get("/", productController.getAll);
 
 //Get product by id
-router.get("/:id", isAuthenticated,  productController.getById);
+router.get("/:id",  productController.getById);
+
+//Get product by Category
+router.get("/category/:category", productController.getByCategory);
 
 //Create new product
 router.post("/", productController.save);
