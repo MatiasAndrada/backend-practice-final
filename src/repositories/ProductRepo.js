@@ -1,5 +1,5 @@
 const { ProductDao } = require("../dao/index");
-const ProductDto = require("../dto/productDto");
+const ProductDto = require("../dto/ProductDto");
 
 
 class ProductRepo {
