@@ -16,7 +16,6 @@ mongoose.connect(config.dbConfig.mongodb.cnxStr);
 
 const socket = require("socket.io");
 
-
 //!view engine setup
 app.set("view engine", "hbs");
 app.set("views", path.join(__dirname, "views"));
@@ -52,8 +51,7 @@ app.use(flash());
 const server = app.listen(app.get("port"), () => {
   logger.info(`Servidor escuchando en el puerto ${app.get("port")}`);
 });
-const db = 
-mongoose.connection;  
+const db = mongoose.connection;
 db.on("error", (err) => {
   logger.error(err);
 });
@@ -61,23 +59,27 @@ db.once("open", () => {
   logger.info("Conectado a la base de datos");
 });
 
-
 //!SOCKET.IO
-const messages = [];
+const messages = [{
+  message: "hola",
+  user: "Admin",
+  date: "021-05-01T21:09:47.000Z"
+}];
 const io = socket(server);
 io.on("connection", (socket) => {
   socket.on("change-list", () => {
     io.sockets.emit("refresh-new-products");
-
-    socket.emit("new-chat-message", messages);
-    
-    socket.on("new-message", (message) => {
-      messages.push(message);
-      io.sockets.emit("new-chat-message", messages);
-    });
   });
   socket.on("change-list-cart", () => {
     socket.emit("refresh-new-products-cart");
+  });
+
+  socket.on("new-chat-message", (message) => {
+    messages.push(message);
+    io.sockets.emit("refresh-message", messages);
+  });
+  socket.on("refresh-message", () => {
+    io.sockets.emit("refresh-message", messages);
   });
 });
 
@@ -93,8 +95,7 @@ app.use("/", require("./routes/auth")(passport));
 app.use("/", require("./routes/primary"));
 app.use("/api", require("./routes/info"));
 app.use("/api/product", require("./routes/product"));
-app.use("/api/cart", require("./routes/cart")); 
-app.use("/messages", require("./routes/messages"))
-
+app.use("/api/cart", require("./routes/cart"));
+app.use("/messages", require("./routes/messages"));
 
 module.exports = app;

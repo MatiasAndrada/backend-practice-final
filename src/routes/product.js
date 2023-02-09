@@ -8,7 +8,7 @@ const productController = require("../controllers/productController");
 router.get("/", productController.getAll);
 
 //Get product by id
-router.get("/:id",  productController.getById);
+router.get("/:id", productController.getById);
 
 //Get product by Category
 router.get("/category/:category", productController.getByCategory);
@@ -17,7 +17,7 @@ router.get("/category/:category", productController.getByCategory);
 router.post("/", productController.save);
 
 //Create new products
-router.post("/all" , productController.saveAll);
+router.post("/all",  productController.saveAll);
 
 //Update product
 router.put("/:id", isAuthenticated,  productController.update);

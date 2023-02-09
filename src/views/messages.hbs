@@ -1,0 +1,59 @@
+<!-- Navbar -->
+<nav class="navbar navbar-dark bg-dark d-flex flex-row" id="nav-bar">
+    <div class="col-4">
+
+        <a class="navbar-brand" href="/home">
+            <img src="./images/icon.png" width="140" alt="Icon">
+        </a>
+
+    </div>
+    <div class="container-fluid col-8">
+
+        <div class="container d-flex justify-content-evenly">
+            <button id="userData" class="btn btn-success" onclick="location.href = '/datos'" type="button">Data
+                User</button>
+            <button class="btn btn-warning" onclick="location.href = '/messages'" type="button">Messages</button>
+
+            <button id="cart" class="btn btn-primary" onclick="location.href = '/dashboard'" type="button">Cart</button>
+            <button id="logOutBtn" class="btn btn-danger" type="button">Log Out</button>
+        </div>
+    </div>
+</nav>
+
+
+<div class="container">
+    <h2 class="text-center">CHAT IN REAL TIME</h2>
+    <div class="row">
+        <div class="col-6">
+            <form id="form-messages">
+                <h3 class="text-center">Send Message</h3>
+                <div class="mb-6">
+                    <h2>Usuario:</h2>
+                    <h3 id="username-data">{{user}}</h3>
+                </div>
+                <div class="mb-6">
+                    <label for="exampleInputPassword1" class="form-label">Message:</label>
+                    <input type="text" class="form-control" id="message-input">
+                </div>
+                <button type="submit" id="send-btn" class="btn btn-success">
+                    <i class="fas fa-paper-plane">Send</i>
+                </button>
+            </form>
+        </div>
+        <div class="col-6">
+            <div id="Messages">
+                <h3 class="text-center">Messages</h3>
+
+                <ul class="list-group" id="list-messages">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./javascripts/socket.io.js"></script>
+    <script src="./javascripts/messages.js"></script>
+
+</div>

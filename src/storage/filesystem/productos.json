@@ -34,5 +34,23 @@
     "category": "Phone",
     "_id": 4,
     "timestamp": "07/02/2023 15:25"
+  },
+  {
+    "name": "Apple MacBook Air",
+    "description": "Chip M1 de Apple CPU de 8 núcleos GPU de 7 núcleos",
+    "price": "4500",
+    "thumbnail": "https://m.media-amazon.com/images/I/71vFKBpKakL._AC_SL1500_.jpg",
+    "category": "Notebook",
+    "_id": 5,
+    "timestamp": "09/02/2023 13:49"
+  },
+  {
+    "name": "Apple MacBook Air",
+    "description": "Chip M2 de Apple CPU de 8 núcleos GPU de 10 núcleos",
+    "price": "5500",
+    "thumbnail": "https://todoapplecaba.com.ar/wp-content/uploads/2022/11/macbook-air-m2.jpg",
+    "category": "Notebook",
+    "_id": 6,
+    "timestamp": "09/02/2023 13:49"
   }
 ]

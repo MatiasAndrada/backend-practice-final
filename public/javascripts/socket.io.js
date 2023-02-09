@@ -20,6 +20,22 @@ socket.on("refresh-new-products-cart", async () => {
   renderPartialhbs("#product-cart-template", prdtList, "#cartList");
 });
 
+//socket on message
+socket.on("refresh-message", (data) => {
+  console.log("0")
+  console.log(data)
+
+//recibimos el mensaje
+const listMessages = document.getElementById("list-messages");
+const list = data.map((message) => {
+return `<li class="list-group-item">
+  <p><strong>${message.user}</strong>: ${message.message}</p>
+  <p class="text-end"><small>${message.date}</small></p>
+  </li>`;
+});
+listMessages.innerHTML = list.join("");
+});
+
 //!GET DATA
 function getProductList() {
   const data = fetch("/api/product", {
@@ -50,13 +66,9 @@ function getCartList() {
       if (res.status === 200) {
         return res.json();
       }
-    })
+    }) 
     .catch((err) => {
       console.log(err);
     });
-    return data;
-  }
-
-  //export socket
-  module.exports = socket;
-  
+  return data;
+}

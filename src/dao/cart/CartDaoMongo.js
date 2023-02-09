@@ -55,7 +55,13 @@ class CarritosDaoMongo extends ContenedorMongo {
                     respuesta.items = respuesta.items.filter((item) => !itemsToDelete.includes(item._id));
                 }
                 return respuesta
+            }else{
+                //?crear carrito
+                return await this.coleccion.create({ owner: idUser, total: 0, itemsAmount:0, items: [] });
+
+
             }
+
         } catch (error) {
             throw new Error(`Error leer el ID de archivo: ${error}`);
         }

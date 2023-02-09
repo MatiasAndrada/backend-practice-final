@@ -290,3 +290,7 @@
 2023-02-08T22:19:36.797Z error: Cannot read properties of undefined (reading 'items')
 2023-02-08T22:23:15.648Z error: Cannot read properties of undefined (reading 'items')
 2023-02-08T22:49:20.558Z error: 5 NOT_FOUND: No document to update: projects/pichulitoo-5e382/databases/(default)/documents/carts/63d16e96fd0f39102bc7434e
+2023-02-09T15:51:12.804Z error: Error leer el ID de archivo: ReferenceError: total is not defined
+2023-02-09T15:51:19.328Z error: Error leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-02-09T15:51:21.014Z error: Error leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-02-09T15:51:22.925Z error: Error leer el ID de archivo: ReferenceError: total is not defined

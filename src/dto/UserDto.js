@@ -6,6 +6,7 @@ const Joi =  require("joi");
 class UserDto {
     constructor(user) {
         this._id = user._id.toString();
+        this.username = user.username
         this.name = user.firstName;
         this.lastName = user.lastName;
         this.email = user.email;
@@ -22,6 +23,7 @@ class UserDto {
     static validate(user) {
         const schema = Joi.object({
             _id: Joi.string().min(3).max(50).required(),
+            username: Joi.string().min(3).max(50).required(),
             name: Joi.string().min(3).max(50).required(),
             lastName: Joi.string().min(3).max(50).required(),
             email: Joi.string().min(3).max(50).required(),
