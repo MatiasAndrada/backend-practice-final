@@ -48,9 +48,9 @@ class CarritosDaoFile extends ContainerFile {
 
     async addItemToCart(idUser, idProduct, quantity, price) {
         try {
-            let respuesta = await this.getAll();
-            let carrito = respuesta.find((carrito) => carrito.owner == idUser);
-            let producto = carrito.items.find((item) => item._id == idProduct);
+            let respuesta = await this.getAll(); // gets all the carts
+            let carrito = respuesta.find((carrito) => carrito.owner == idUser); // looks for the cart of the user
+            let producto = carrito.items.find((item) => item._id == idProduct); // looks for the product in the cart
             if (producto) {
                 producto.quantity += quantity;
                 producto.priceAmount = producto.quantity * price;
@@ -91,6 +91,8 @@ class CarritosDaoFile extends ContainerFile {
             if (producto) {
                 carrito.items = carrito.items.filter((item) => item._id != idProduct);
                 carrito.total -= priceAmount;
+            } else {
+                throw new Error(`El producto ${idProduct} no se encuentra en el carrito ${carrito._id}`);
             }
             await this.saveAll(respuesta);
             return carrito;

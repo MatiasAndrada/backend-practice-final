@@ -353,3 +353,8 @@
 2023-02-09T15:51:21.014Z error: Error leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
 2023-02-09T15:51:22.925Z error: Error leer el ID de archivo: ReferenceError: total is not defined
 2023-02-09T16:47:47.558Z warn: Invalid Password
+2023-05-16T21:41:37.276Z warn: Invalid Password
+2023-05-16T21:46:14.874Z warn: Invalid Password
+2023-05-16T23:28:07.586Z warn: Invalid Password
+2023-05-17T19:15:58.255Z warn: User Not found with username pichulito
+2023-05-17T19:16:05.084Z warn: Invalid Password

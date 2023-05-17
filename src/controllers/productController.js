@@ -110,7 +110,7 @@ exports.deleteAll = (req, res) => {
                 message: "Error deleting Products",
             });
         });
-};
+};  
 exports.deleteById = (req, res) => {
     ProductRepo.deleteById(req.params.id)
         .then(() => {

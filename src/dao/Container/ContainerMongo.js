@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 
 class ContainerMongo {
-    constructor(nombreColeccion, schema) {
-        this.coleccion = mongoose.model(nombreColeccion, schema);
+    constructor(nombreColección, schema) {
+        this.colección = mongoose.model(nombreColección, schema);
     }
 
     async getAll() {
 
         try {
-            const respuesta = await this.coleccion.find({})
+            const respuesta = await this.colección.find({})
 
             return respuesta
         } catch (err) {
@@ -19,7 +19,7 @@ class ContainerMongo {
     async getById(_id) {
         
         try {
-            const respuesta = await this.coleccion.findOne({ _id: { $eq: `${_id}` } })
+            const respuesta = await this.colección.findOne({ _id: { $eq: `${_id}` } })
             
             return respuesta
         } catch (error) {
@@ -28,7 +28,15 @@ class ContainerMongo {
     }
     async save(newObj) {
         try {
-            const respuesta = await this.coleccion.create(newObj)
+            const respuesta = await this.colección.create(newObj)
+            return respuesta
+        } catch (error) {
+            throw new Error(`Error al guardar el archivo: ${error}`)
+        }
+    }
+    async saveAll(array) {
+        try {
+            const respuesta = await this.colección.insertMany(array)
             return respuesta
         } catch (error) {
             throw new Error(`Error al guardar el archivo: ${error}`)
@@ -36,7 +44,7 @@ class ContainerMongo {
     }
     async updateById(_id, newObj) {
         try {
-            const respuesta = await this.coleccion.updateOne({ _id: { $eq: `${_id}` } }, newObj)
+            const respuesta = await this.colección.updateOne({ _id: { $eq: `${_id}` } }, newObj)
             return respuesta
         } catch (error) {
             throw new Error(`Error al actualizar el archivo: ${error}`)
@@ -44,7 +52,7 @@ class ContainerMongo {
     }
     async deleteById(_id) {
         try {
-            const respuesta = await this.coleccion.deleteOne({ _id: { $eq: `${_id}` } })
+            const respuesta = await this.colección.deleteOne({ _id: { $eq: `${_id}` } })
             return respuesta
         } catch (error) {
             throw new Error(`Error al borrar el archivo: ${error}`)
@@ -52,7 +60,7 @@ class ContainerMongo {
     }
     async deleteAll() {
         try {
-            const respuesta = await this.coleccion.deleteMany({})
+            const respuesta = await this.colección.deleteMany({})
             return respuesta
         } catch (error) {
             throw new Error(`Error al borrar el archivo: ${error}`)

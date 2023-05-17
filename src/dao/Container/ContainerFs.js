@@ -29,17 +29,17 @@ class ContenedorFile{
     }
     
     async save(newObj){
-        const informacion = await this.getAll()
+        const información = await this.getAll()
         let newId
-        if(informacion.length == 0){
+        if(información.length == 0){
             newId = 1
         }else{
-            newId = parseInt(informacion[informacion.length-1]._id) + 1
+            newId = parseInt(información[información.length-1]._id) + 1
         }
         let timestamp = moment().format('DD/MM/YYYY HH:mm');
-        informacion.push({...newObj, _id: newId, timestamp: timestamp})
+        información.push({...newObj, _id: newId, timestamp: timestamp})
         try{
-            await fs.promises.writeFile(this.fileData,JSON.stringify(informacion, null,2))
+            await fs.promises.writeFile(this.fileData,JSON.stringify(información, null,2))
             return newId    
         }catch(error){
             throw new Error(`Error al guardar: ${error}`)

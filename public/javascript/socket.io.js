@@ -1,5 +1,5 @@
 const socket = io();
-function renderPartialhbs(IdTemplate, dataRender, IdInsertTemplate) {
+function renderPartialHbs(IdTemplate, dataRender, IdInsertTemplate) {
   const template = Handlebars.compile($(IdTemplate).html());
   const html = template({ list: dataRender });
   $(IdInsertTemplate).html(html);
@@ -11,13 +11,14 @@ socket.on("connect", () => {
 });
 
 socket.on("refresh-new-products", async () => {
+  console.log("1")
   const prdtList = await getProductList();
-  renderPartialhbs("#product-template", prdtList, "#prdtList");
+  renderPartialHbs("#product-template", prdtList, "#prdtList");
 });
 
 socket.on("refresh-new-products-cart", async () => {
   const prdtList = await getCartList();
-  renderPartialhbs("#product-cart-template", prdtList, "#cartList");
+  renderPartialHbs("#product-cart-template", prdtList, "#cartList");
 });
 
 //socket on message

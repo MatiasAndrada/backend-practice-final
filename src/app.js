@@ -7,7 +7,7 @@ const loggerDEV = require("morgan");
 const logger = require("./utils/logger");
 
 const app = express();
-//!configuracion de puerto
+//!configuración de puerto
 const config = require("./config");
 app.set("port", config.appConfig.port);
 const mongoose = require("mongoose");
@@ -68,6 +68,7 @@ const messages = [{
 const io = socket(server);
 io.on("connection", (socket) => {
   socket.on("change-list", () => {
+    console.log("change-list", 0);
     io.sockets.emit("refresh-new-products");
   });
   socket.on("change-list-cart", () => {
@@ -84,10 +85,10 @@ io.on("connection", (socket) => {
 });
 
 /* //!ERRORHANDLER MIDDLEWARE
-const errorHandler = require("./middlewares/errorHandler");
+const errorHandler = require("./middleware/errorHandler");
 app.use(errorHandler); */
 //!AUTH MIDDLEWARE
-/* const auth = require("./middlewares/auth");
+/* const auth = require("./middleware/auth");
 app.use(auth); */
 
 app.use("/", require("./routes/auth")(passport));

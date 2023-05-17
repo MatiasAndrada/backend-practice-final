@@ -1,12 +1,12 @@
-const db = require("../../firebaseConfig")
+const db = require("../../firebaseConfig");
 class ContainerFirebase {
   constructor(collection) {
-    this.coleccion = db.collection(collection);
+    this.colección = db.collection(collection);
   }
 
   async getAll() {
     try {
-      const respuesta = await this.coleccion.get();
+      const respuesta = await this.colección.get();
       if (respuesta.empty) {
         return [];
       }
@@ -21,7 +21,7 @@ class ContainerFirebase {
 
   async getById(id) {
     try {
-      const respuesta = await this.coleccion.doc(id).get();
+      const respuesta = await this.colección.doc(id).get();
       if (!respuesta.exists) {
         return null;
       }
@@ -33,15 +33,25 @@ class ContainerFirebase {
 
   async save(object) {
     try {
-      const respuesta = await this.coleccion.add(object);
+      const respuesta = await this.colección.add(object);
       return respuesta.id;
     } catch (error) {
       throw new Error(`Error al guardar el archivo: ${error}`);
     }
   }
+  async saveAll(array) {
+    try {
+      array.forEach(async (element) => {
+        await this.colección.add(element);
+      });
+    } catch (error) {
+      throw new Error(`Error al guardar el archivo: ${error}`);
+    }
+  }
+
   async updateById(id, object) {
     try {
-      await this.coleccion.doc(id).update(object);
+      await this.colección.doc(id).update(object);
     } catch (error) {
       throw new Error(`Error al actualizar el archivo: ${error}`);
     }
@@ -49,16 +59,16 @@ class ContainerFirebase {
 
   async deleteById(id) {
     try {
-      await this.coleccion.doc(id).delete();
+      await this.colección.doc(id).delete();
     } catch (error) {
       throw new Error(`Error al borrar el archivo: ${error}`);
     }
   }
   async deleteAll() {
     try {
-      const respuesta = await this.coleccion.get();
+      const respuesta = await this.colección.get();
       respuesta.docs.forEach((documento) => {
-        this.coleccion.doc(documento._id).delete();
+        this.colección.doc(documento._id).delete();
       });
     } catch (error) {
       throw new Error(`Error al borrar los archivos: ${error}`);
@@ -67,7 +77,3 @@ class ContainerFirebase {
 }
 
 module.exports = ContainerFirebase;
-
-
-
-

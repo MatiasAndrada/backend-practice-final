@@ -32,8 +32,8 @@
             <div class="container d-flex justify-content-evenly">
                 <button id="userData" class="btn btn-success" onclick="location.href = '/datos'" type="button">Data
                     User</button>
-                <button  class="btn btn-warning" onclick="location.href = '/messages'" type="button">Messages</button>
-            
+                <button class="btn btn-warning" onclick="location.href = '/messages'" type="button">Messages</button>
+
                 <button id="cart" class="btn btn-primary" onclick="location.href = '/dashboard'"
                     type="button">Cart</button>
                 <button id="logOutBtn" class="btn btn-danger" type="button">Log Out</button>
@@ -46,6 +46,7 @@
         <div class="row">
             <div class="col-12" id="product-list">
                 <h1 class="text-center">Productos</h1>
+                <button type="button" class="btn btn-outline-success m-3" onclick={mockProducts()}>Add Mocks</button>
                 <div id="prdtList"> </div>
             </div>
         </div>
@@ -89,10 +90,22 @@
             </li>
             {{/each}}
         </ul>
-        <script>
+        <script>   
+            function mockProducts() {
+                const mocks = fetch("./javascript/mocks/products.json");
+                mocks.then((res) => res.json())
+                    .then((data) => {
+                        axios.post("/api/product/all", data)
+                            .then((res) => {
+                                if (res.status === 200) {
+                                    socket.emit("change-list");
+                                }
+                            });
+                    });
+            }
 
             $(".add-cart").click(function () {
-                //seleccionar del dom los elemntos mas cercanos al evento
+                //seleccionar del dom los elementos mas cercanos al evento
                 //pasar por param el id y la cantidad
                 let idProduct = $(this).data("id")
                 let quantity = $(this).closest("div").find("#form-select").val();
@@ -109,16 +122,17 @@
                     idProduct: idProduct
                 })
             })
+
             $(".delete-item").click((e) => {
-                //paasar por param ek id
-                let idProduct = e.target.dataset.id;
+                let idProduct = $(e.target).data("id");
+                console.log(idProduct)
                 axios.delete(`/api/product/${idProduct}`)
                     .then((res) => {
                         if (res.status === 200) {
                             socket.emit("change-list");
                         }
                     });
-            })
+            });
 
 
             $(".delete-all").click(() => {
@@ -142,8 +156,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
-    <script src="./javascripts/socket.io.js"></script>
-    <script src="./javascripts/home.js"></script>
+    <script src="./javascript/socket.io.js"></script>
+    <script src="./javascript/home.js"></script>
 </body>
 
 </html>
