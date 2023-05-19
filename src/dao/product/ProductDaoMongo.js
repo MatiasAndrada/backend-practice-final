@@ -16,7 +16,6 @@ class ProductosDaoMongo extends ContainerMongo {
   }
   
   async getProducts(){
-    console.log("get all products ")
     return await this.getAll()
 }
 

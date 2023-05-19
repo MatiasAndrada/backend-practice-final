@@ -332,3 +332,36 @@
 2023-05-19T04:39:01.877Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getProducts')
 2023-05-19T04:39:02.017Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getProducts')
 2023-05-19T04:42:33.615Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'getProductById')
+2023-05-19T16:01:11.625Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'getProductById')
+2023-05-19T16:02:15.962Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'getProductById')
+2023-05-19T16:04:46.245Z error: Error al leer el ID de archivo: ReferenceError: total is not defined
+2023-05-19T18:11:22.056Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T18:11:43.793Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T18:13:52.873Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T18:14:22.592Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T18:27:01.046Z error: Error al leer el ID de archivo: ReferenceError: ObjectId is not defined
+2023-05-19T18:27:37.940Z error: Error al leer el ID de archivo: ReferenceError: ObjectId is not defined
+2023-05-19T18:29:16.175Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T18:32:54.507Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T18:33:51.352Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T18:44:26.927Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T18:58:38.235Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T18:59:53.534Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T19:15:09.632Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T19:15:27.272Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T19:25:02.536Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T19:25:10.601Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T19:26:45.405Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T19:28:32.038Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T19:28:53.101Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T19:28:55.024Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T19:29:05.951Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T20:00:51.477Z error: Error al agregar el producto al carrito: ReferenceError: Cannot access 'quantity' before initialization
+2023-05-19T20:00:52.843Z error: Error al agregar el producto al carrito: ReferenceError: Cannot access 'quantity' before initialization
+2023-05-19T20:00:53.975Z error: Error al agregar el producto al carrito: ReferenceError: Cannot access 'quantity' before initialization
+2023-05-19T20:00:54.684Z error: Error al agregar el producto al carrito: ReferenceError: Cannot access 'quantity' before initialization
+2023-05-19T20:10:50.875Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T20:13:38.766Z error: Error al leer el ID de archivo: Error: Error al buscar el producto: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T20:14:04.639Z error: Error al leer el ID de archivo: Error: Error al buscar el producto: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T20:14:55.267Z error: Error al leer el ID de archivo: Error: Error al buscar el producto: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T20:19:18.995Z error: Error al leer el ID de archivo: Error: Error al buscar el producto: TypeError: Cannot read properties of null (reading '_id')

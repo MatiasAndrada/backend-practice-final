@@ -5,7 +5,6 @@ exports.getAll = (req, res) => {
     const idUser = req.user._id;
     CartRepo.getAll(idUser)
         .then((cart) => {
-            console.log("controller", cart)
             res.json(cart);
         })
         .catch((err) => {
@@ -18,7 +17,9 @@ exports.getAll = (req, res) => {
 
 exports.save = (req, res) => {
     const idUser = req.user._id;
-    const { quantity, price, idProduct } = req.body;
+    let { quantity, price, idProduct } = req.body;
+    quantity = parseInt(quantity);
+    price = parseInt(price);
     CartRepo.save(idUser, idProduct, quantity, price)
         .then(() => {
             res.send("Se ha agregado al carrito");
