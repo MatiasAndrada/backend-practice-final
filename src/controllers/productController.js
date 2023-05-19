@@ -115,13 +115,13 @@ exports.deleteById = (req, res) => {
     ProductRepo.deleteById(req.params.id)
         .then(() => {
             res.json({ message: "Product deleted successfully" });
-        })
+        }
+        )
         .catch((err) => {
             logger.error(err);
             res.status(500).json({
                 message: "Error deleting Product with id " + req.params.id,
             });
-        });
-
+        }
+        );
 };
-

@@ -5,7 +5,6 @@
       "price": "1000",
       "thumbnail": "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/MRW62?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1569617849402",
       "category": "Phone",
-      "_id": 1,
       "timestamp": "07/02/2023 15:25"
     },
     {
@@ -14,7 +13,6 @@
       "price": "1300",
       "thumbnail": "https://plazavea.vteximg.com.br/arquivos/ids/19521548-512-512/imageUrl_2.jpg",
       "category": "Phone",
-      "_id": 2,
       "timestamp": "07/02/2023 15:25"
     },
     {
@@ -23,7 +21,6 @@
       "price": "1500",
       "thumbnail": "https://www.macstation.com.ar/img/productos/2492-2317-1.jpg",
       "category": "Phone",
-      "_id": 3,
       "timestamp": "07/02/2023 15:25"
     },
     {
@@ -32,7 +29,6 @@
       "price": "1800",
       "thumbnail": "https://buytek.net/wp-content/uploads/2021/10/Iphone-13-Pro.8.png",
       "category": "Phone",
-      "_id": 4,
       "timestamp": "07/02/2023 15:25"
     },
     {
@@ -41,7 +37,6 @@
       "price": "4500",
       "thumbnail": "https://m.media-amazon.com/images/I/71vFKBpKakL._AC_SL1500_.jpg",
       "category": "Notebook",
-      "_id": 5,
       "timestamp": "09/02/2023 13:49"
     },
     {
@@ -50,7 +45,6 @@
       "price": "5500",
       "thumbnail": "https://todoapplecaba.com.ar/wp-content/uploads/2022/11/macbook-air-m2.jpg",
       "category": "Notebook",
-      "_id": 6,
       "timestamp": "09/02/2023 13:49"
     }
   ]

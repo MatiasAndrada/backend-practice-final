@@ -11,7 +11,6 @@ socket.on("connect", () => {
 });
 
 socket.on("refresh-new-products", async () => {
-  console.log("1")
   const prdtList = await getProductList();
   renderPartialHbs("#product-template", prdtList, "#prdtList");
 });
@@ -23,9 +22,6 @@ socket.on("refresh-new-products-cart", async () => {
 
 //socket on message
 socket.on("refresh-message", (data) => {
-  console.log("0")
-  console.log(data)
-
 //recibimos el mensaje
 const listMessages = document.getElementById("list-messages");
 const list = data.map((message) => {

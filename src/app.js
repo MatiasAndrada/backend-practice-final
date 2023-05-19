@@ -49,8 +49,9 @@ const flash = require("connect-flash");
 app.use(flash());
 //!listen
 const server = app.listen(app.get("port"), () => {
-  logger.info(`Servidor escuchando en el puerto ${app.get("port")}`);
+  logger.info(`Servidor escuchando en el puerto ${app.get("port")} con el enlace http://localhost:${app.get("port")}`);
 });
+
 const db = mongoose.connection;
 db.on("error", (err) => {
   logger.error(err);
@@ -68,7 +69,6 @@ const messages = [{
 const io = socket(server);
 io.on("connection", (socket) => {
   socket.on("change-list", () => {
-    console.log("change-list", 0);
     io.sockets.emit("refresh-new-products");
   });
   socket.on("change-list-cart", () => {

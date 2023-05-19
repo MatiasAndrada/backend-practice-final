@@ -358,3 +358,57 @@
 2023-05-16T23:28:07.586Z warn: Invalid Password
 2023-05-17T19:15:58.255Z warn: User Not found with username pichulito
 2023-05-17T19:16:05.084Z warn: Invalid Password
+2023-05-17T23:04:33.362Z error: Error al guardar el archivo: ValidationError: _id: Cast to ObjectId failed for value "1" (type number) at path "_id" because of "BSONTypeError"
+2023-05-17T23:05:03.634Z error: Error leer el ID de archivo: CastError: Cast to ObjectId failed for value "all" (type string) at path "_id" for model "products"
+2023-05-18T20:59:35.806Z warn: Invalid Password
+2023-05-18T20:59:42.602Z warn: Invalid Password
+2023-05-18T21:02:10.112Z error: Error leer el ID de archivo: ReferenceError: index is not defined
+2023-05-18T21:02:39.947Z error: Error leer el ID de archivo: ReferenceError: index is not defined
+2023-05-18T21:02:49.658Z error: Error leer el ID de archivo: ReferenceError: index is not defined
+2023-05-18T21:04:55.708Z error: Error al borrar el archivo: CastError: Cast to ObjectId failed for value "NaN" (type string) at path "_id" for model "products"
+2023-05-18T21:05:32.009Z error: Error al guardar el archivo: ValidationError: _id: Cast to ObjectId failed for value "1" (type number) at path "_id" because of "BSONTypeError"
+2023-05-18T21:05:46.229Z error: Error al guardar el archivo: ValidationError: _id: Cast to ObjectId failed for value "1" (type number) at path "_id" because of "BSONTypeError"
+2023-05-18T21:05:53.587Z error: Error al guardar el archivo: ValidationError: _id: Cast to ObjectId failed for value "1" (type number) at path "_id" because of "BSONTypeError"
+2023-05-18T21:13:32.569Z warn: Invalid Password
+2023-05-18T21:16:19.759Z error: Error al guardar el archivo: ValidationError: _id: Cast to ObjectId failed for value "1" (type number) at path "_id" because of "BSONTypeError"
+2023-05-18T21:23:44.737Z warn: Invalid Password
+2023-05-18T21:23:51.181Z warn: Invalid Password
+2023-05-18T21:23:55.664Z warn: Invalid Password
+2023-05-18T22:30:36.509Z warn: Invalid Password
+2023-05-18T22:30:43.514Z error: Error al guardar el archivo: ValidationError: _id: Cast to ObjectId failed for value "1" (type number) at path "_id" because of "BSONTypeError"
+2023-05-18T22:39:03.777Z warn: Invalid Password
+2023-05-18T22:43:14.308Z warn: Invalid Password
+2023-05-18T22:43:18.896Z warn: Invalid Password
+2023-05-18T22:44:08.514Z warn: User Not found with username deigo
+2023-05-19T03:21:41.085Z warn: Invalid Password
+2023-05-19T03:38:33.633Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'findOne')
+2023-05-19T03:38:55.663Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'findOne')
+2023-05-19T03:41:03.015Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'findOne')
+2023-05-19T03:41:08.034Z error: Error leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'findOne')
+2023-05-19T03:42:12.301Z error: Error leer el ID de archivo: ReferenceError: total is not defined
+2023-05-19T03:42:20.333Z error: Error leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T03:42:27.992Z error: Error leer el ID de archivo: TypeError: Cannot read properties of null (reading '_id')
+2023-05-19T03:43:44.679Z warn: Invalid Password
+2023-05-19T03:43:52.020Z error: Error leer el ID de archivo: ReferenceError: total is not defined
+2023-05-19T04:07:22.481Z warn: Invalid Password
+2023-05-19T04:07:46.514Z error: Error al leer el ID de archivo: TypeError: Products.getAll is not a function
+2023-05-19T04:24:23.647Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'getById')
+2023-05-19T04:25:23.847Z warn: Invalid Password
+2023-05-19T04:25:39.928Z error: Error al agregar el producto al carrito: ReferenceError: Products is not defined
+2023-05-19T04:26:23.620Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getAllProducts')
+2023-05-19T04:26:54.779Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getProducts')
+2023-05-19T04:29:10.434Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getProducts')
+2023-05-19T04:35:44.673Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getProducts')
+2023-05-19T04:35:47.566Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getProducts')
+2023-05-19T04:35:49.172Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getProducts')
+2023-05-19T04:38:15.125Z warn: User Not found with username diego 
+2023-05-19T04:38:34.851Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getProducts')
+2023-05-19T04:38:43.808Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getProducts')
+2023-05-19T04:38:44.956Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getProducts')
+2023-05-19T04:38:54.474Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getProducts')
+2023-05-19T04:38:58.949Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getProducts')
+2023-05-19T04:39:00.857Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getProducts')
+2023-05-19T04:39:01.698Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getProducts')
+2023-05-19T04:39:01.877Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getProducts')
+2023-05-19T04:39:02.017Z error: Error al agregar el producto al carrito: TypeError: Cannot read properties of undefined (reading 'getProducts')
+2023-05-19T04:42:33.615Z error: Error al leer el ID de archivo: TypeError: Cannot read properties of undefined (reading 'getProductById')

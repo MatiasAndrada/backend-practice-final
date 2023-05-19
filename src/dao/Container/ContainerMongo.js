@@ -36,6 +36,7 @@ class ContainerMongo {
     }
     async saveAll(array) {
         try {
+            await this.colección.deleteMany({})
             const respuesta = await this.colección.insertMany(array)
             return respuesta
         } catch (error) {
