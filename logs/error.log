@@ -365,3 +365,6 @@
 2023-05-19T20:14:04.639Z error: Error al leer el ID de archivo: Error: Error al buscar el producto: TypeError: Cannot read properties of null (reading '_id')
 2023-05-19T20:14:55.267Z error: Error al leer el ID de archivo: Error: Error al buscar el producto: TypeError: Cannot read properties of null (reading '_id')
 2023-05-19T20:19:18.995Z error: Error al leer el ID de archivo: Error: Error al buscar el producto: TypeError: Cannot read properties of null (reading '_id')
+2023-05-20T00:13:25.230Z error: Error al borrar los archivos: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-05-20T00:13:32.596Z error: Error al borrar los archivos: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.
+2023-05-20T00:13:44.486Z error: Error al borrar los archivos: Error: Value for argument "documentPath" is not a valid resource path. Path must be a non-empty string.

@@ -66,10 +66,14 @@ class ContainerFirebase {
   }
   async deleteAll() {
     try {
-      const respuesta = await this.colección.get();
-      respuesta.docs.forEach((documento) => {
-        this.colección.doc(documento._id).delete();
-      });
+    const respuesta = await this.colección.get();
+    if (respuesta.empty) {
+      return [];
+    }
+    respuesta.docs.forEach(async (documento) => {
+      await this.colección.doc(documento.id).delete();
+    });
+
     } catch (error) {
       throw new Error(`Error al borrar los archivos: ${error}`);
     }
