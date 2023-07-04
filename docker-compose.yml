@@ -1,14 +1,15 @@
 version: "3"
 services:
   app:
-    image: nodeimage
-    container_name: nodeserver
+    image: node:16
+    container_name: ecommerce-backend-test
     build: ./
     restart: always
     ports:
-    - "80:80"
+      - "3000:3000" # Mapea el puerto 8080 del contenedor al puerto 80 del host
     volumes:
-    - ./:/usr/src/app
-    - /usr/src/app/node_modules
+      - ./:/usr/src/app
+      - /usr/src/app/node_modules
     environment:
-    - NODE_ENV=production
+     - NODE_ENV=production
+

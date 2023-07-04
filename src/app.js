@@ -1,11 +1,11 @@
 "use strict";
 const express = require("express");
-require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const path = require("path");
 const loggerDEV = require("morgan");
 const logger = require("./utils/logger");
-
+//env 
+console.log(process.env.NODE_ENV);
 const app = express();
 //!configuración de puerto
 const config = require("./config");
