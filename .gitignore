@@ -3,7 +3,7 @@ node_modules
 ## Log
 ./logs
 ##config
-./srcs/config.js
+./src/config.js
 ##env
-./.env
+.env
 
