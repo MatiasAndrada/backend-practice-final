@@ -1,12 +1,9 @@
 ## node_modules
 node_modules
 ## Log
-.log
+./logs
+##config
+./srcs/config.js
+##env
+./.env
 
-
-
-
-# Elastic Beanstalk Files
-.elasticbeanstalk/*
-!.elasticbeanstalk/*.cfg.yml
-!.elasticbeanstalk/*.global.yml
