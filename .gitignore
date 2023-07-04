@@ -5,4 +5,5 @@ src/config.js
 ##logs
 logs
 ##env
-.env
+development.env
+production.env
